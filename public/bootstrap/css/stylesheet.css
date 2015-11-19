@@ -1,0 +1,18 @@
+#selectIng {
+	display: none;
+}
+
+#inputOrder {
+	display: none;
+}
+
+#contents {
+	background-color: lightblue;
+	color: black;
+	width: 200px;
+	text-align: center;
+}
+
+#shows {
+	display: none;
+}

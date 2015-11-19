@@ -1,0 +1,29 @@
+body {
+
+    padding: 2rem 0;
+
+}
+
+.dn {
+
+    display: none;
+
+}
+
+.button.open {
+
+    background-color: #000;
+
+}
+
+.button i {
+
+    visibility: hidden;
+
+}
+
+.button.open i {
+
+    visibility: visible;
+
+}
