@@ -11,6 +11,7 @@ class Ingredient extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'ingredients';
+	protected $primaryKey = 'ingredients_id';
 
 	/**
 	 * The attributes excluded from the model's JSON form.

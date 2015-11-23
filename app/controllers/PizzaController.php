@@ -34,12 +34,15 @@ class PizzaController extends BaseController {
 		//
 		$pizza = new Pizza;
 
+		$pizza->pizza_name='Gabs Pizza';
+		$pizza->save();
+
 		$meats = Input::get('meat');
 
-		foreach ($meats as $meat => $value) {
-			//$pizza->ingredients()->attach($meat);
-			echo $meat; 
-			echo "\n";
+
+		foreach ($meats as $meat) {
+			$pizza->ingredients()->attach($meat);
+
 		}
 		
 	}

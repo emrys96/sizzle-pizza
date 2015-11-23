@@ -18,6 +18,7 @@ class CreateIngredientsTable extends Migration {
 			$table->string('ingredient_name');
 			$table->integer('current_stock');
 			$table->float('price');
+			$table->string('size');
 			$table->timestamps();
 		});
 	}
