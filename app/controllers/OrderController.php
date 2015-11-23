@@ -1,6 +1,6 @@
 <?php
 
-class PizzaController extends BaseController {
+class OrderController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +9,7 @@ class PizzaController extends BaseController {
 	 */
 	public function index()
 	{
-		return View::make('customizeIndex');		
+		//
 	}
 
 
@@ -19,8 +19,8 @@ class PizzaController extends BaseController {
 	 * @return Response
 	 */
 	public function create()
-	{	
-		return View::make('customizePizza');
+	{
+		//
 	}
 
 
@@ -32,16 +32,6 @@ class PizzaController extends BaseController {
 	public function store()
 	{
 		//
-		$pizza = new Pizza;
-
-		$meats = Input::get('meat');
-
-		foreach ($meats as $meat => $value) {
-			//$pizza->ingredients()->attach($meat);
-			echo $meat; 
-			echo "\n";
-		}
-		
 	}
 
 

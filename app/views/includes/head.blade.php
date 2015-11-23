@@ -45,11 +45,20 @@
           });
         }
 
+        var marker;
+
         function placeMarker(location) {
-          var marker = new google.maps.Marker({
-            position: location,
-            map: map,
-          });
+          if ( marker ) {
+            marker.setPosition(location);
+          } else {
+            marker = new google.maps.Marker({
+              position: location,
+              map: map            
+            });
+          }
+
+          marker.setMap(map);
+
           var infowindow = new google.maps.InfoWindow({
             content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
           });

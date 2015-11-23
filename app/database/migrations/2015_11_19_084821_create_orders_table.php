@@ -12,9 +12,14 @@ class CreateOrdersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('orders', function(Blueprint $table)
+		Schema::create('orders', function(Blueprint $table)
 		{
-			//
+			$table->increments('order_id');
+			$table->integer('user_id')->unassigned();
+			$table->foreign('user_id')->references('id')->on('users');
+			$table->string('to_address');
+			$table->float('amount');
+			$table->timestamps();
 		});
 	}
 

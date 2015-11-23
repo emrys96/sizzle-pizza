@@ -15,6 +15,7 @@ public function run()
     	'contact_no'=> '09058593592',
     	'username'    => 'alexander90',
         'password' => Hash::make('awesome'),
+        'role' => 'admin',	
     ));
 }
 

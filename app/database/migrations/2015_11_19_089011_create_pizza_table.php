@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration {
+class CreatePizzaTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,11 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('users', function(Blueprint $table)
+		Schema::create('pizzas', function(Blueprint $table)
 		{
-			//
+			$table->increments('pizza_id');
+			$table->string('pizza_name');
+			$table->timestamps();
 		});
 	}
 
@@ -25,7 +27,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('users', function(Blueprint $table)
+		Schema::table('pizzas', function(Blueprint $table)
 		{
 			//
 		});
