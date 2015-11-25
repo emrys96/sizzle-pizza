@@ -20,7 +20,7 @@ class PizzaController extends BaseController {
 	 */
 	public function create()
 	{	
-		return View::make('customizePizza');
+		return View::make('pizza.create');
 	}
 
 

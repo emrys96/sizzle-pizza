@@ -18,6 +18,22 @@
     </script>
 
     
+    <!-- Slider Toggle -->
+    <script> 
+    $(document).ready(function(){
+        $("#flip").click(function(){
+            $("#panel").slideToggle("slow");
+        });
+    });
+    </script>
+
+
+    <script>
+    $('.selectpicker').selectpicker({
+      width: '270px',
+      style: 'btn btn-xs btn-default'
+      });    
+    </script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="../bootstrap/js/core.js"></script>

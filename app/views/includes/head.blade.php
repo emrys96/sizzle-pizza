@@ -68,6 +68,21 @@
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
+    <!-- Slider Style -->
+    <style> 
+    #panel, #flip {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+    }
+
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+    </style>
+
     <!-- For hide and show -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="../bootstrap/css/normalize.css" type="text/css" rel="stylesheet">
