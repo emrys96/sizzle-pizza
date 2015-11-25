@@ -39,14 +39,14 @@ public function run()
                 'current_stock' => 100,
                 'price' => 25,
                 'size' => 'solo',
-                'image_location' => '../images/ingredients/quickmelt.png'
+                'image_location' => '../images/ingredients/mozzarella.png'
             ],
             [
                 'ingredient_name' => 'mozzarella',
                 'current_stock' => 100,
                 'price' => 45,
                 'size' => 'large',
-                'image_location' => '../images/ingredients/quickmelt.png'
+                'image_location' => '../images/ingredients/mozzarella.png'
             ],
             [
                 'ingredient_name' => 'quickmelt',
