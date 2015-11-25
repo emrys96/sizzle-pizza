@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIngredientsTable extends Migration {
+class CreateIngredientTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -31,10 +31,7 @@ class CreateIngredientsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('ingredients', function(Blueprint $table)
-		{
-			//
-		});
+		Schema::drop('ingredients');
 	}
 
 }
