@@ -11,6 +11,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 25,
                 'size' => 'solo',
+                'category' => 'base',
                 'image_location' => '../images/ingredients/dough.png'
             ],
             [
@@ -18,6 +19,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 45,
                 'size' => 'large',
+                'category' => 'base',
                 'image_location' => '../images/ingredients/dough.png'
             ],
             [
@@ -25,6 +27,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 20,
                 'size' => 'solo',
+                'category' => 'base',
                 'image_location' => '../images/ingredients/dough.png'
             ],
             [
@@ -32,6 +35,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 25,
                 'size' => 'solo',
+                'category' => 'base',
                 'image_location' => '../images/ingredients/dough.png'
             ],
             [
@@ -39,6 +43,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 25,
                 'size' => 'solo',
+                'category' => 'cheese',
                 'image_location' => '../images/ingredients/mozzarella.png'
             ],
             [
@@ -46,6 +51,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 45,
                 'size' => 'large',
+                'category' => 'cheese',
                 'image_location' => '../images/ingredients/mozzarella.png'
             ],
             [
@@ -53,6 +59,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 19,
                 'size' => 'solo',
+                'category' => 'cheese',
                 'image_location' => '../images/ingredients/quickmelt.png'
             ],
             [
@@ -60,6 +67,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 30,
                 'size' => 'large',
+                'category' => 'cheese',
                 'image_location' => '../images/ingredients/quickmelt.png'
             ],
             [
@@ -67,6 +75,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 20,
                 'size' => 'solo',
+                'category' => 'meat',
                 'image_location' => '../images/ingredients/pepperoni.png'
             ],
             [
@@ -74,6 +83,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 35,
                 'size' => 'large',
+                'category' => 'meat',
                 'image_location' => '../images/ingredients/pepperoni.png'
             ],
             [
@@ -81,6 +91,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 20,
                 'size' => 'solo',
+                'category' => 'meat',
                 'image_location' => '../images/ingredients/salami.png'
             ],
             [
@@ -88,6 +99,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 35,
                 'size' => 'large',
+                'category' => 'meat',
                 'image_location' => '../images/ingredients/salami.png'
             ],
             [
@@ -95,6 +107,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 15,
                 'size' => 'solo',
+                'category' => 'meat',
                 'image_location' => '../images/ingredients/ham.png'
             ],
             [
@@ -102,6 +115,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 25,
                 'size' => 'large',
+                'category' => 'meat',
                 'image_location' => '../images/ingredients/ham.png'
             ],
             [
@@ -109,6 +123,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 15,
                 'size' => 'solo',
+                'category' => 'meat',
                 'image_location' => '../images/ingredients/hotdog.png'
             ],
             [
@@ -116,6 +131,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 25,
                 'size' => 'large',
+                'category' => 'meat',
                 'image_location' => '../images/ingredients/hotdog.png'
             ],
             [
@@ -123,6 +139,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 15,
                 'size' => 'solo',
+                'category' => 'meat',
                 'image_location' => '../images/ingredients/bacon.png'
             ],
             [
@@ -130,6 +147,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 25,
                 'size' => 'large',
+                'category' => 'meat',
                 'image_location' => '../images/ingredients/bacon.png'
             ],
             [
@@ -137,6 +155,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 10,
                 'size' => 'solo',
+                'category' => 'chili',
                 'image_location' => '../images/ingredients/greenbellpepper.png'
             ],
             [
@@ -144,6 +163,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 10,
                 'size' => 'solo',
+                'category' => 'chili',
                 'image_location' => '../images/ingredients/redbellpepper.png'
             ],
             [
@@ -151,6 +171,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 5,
                 'size' => 'solo',
+                'category' => 'chili',
                 'image_location' => '../images/ingredients/chiliflakes.png'
             ],
             [
@@ -158,6 +179,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 5,
                 'size' => 'solo',
+                'category' => 'topping',
                 'image_location' => '../images/ingredients/onion.png'
             ],
             [
@@ -165,6 +187,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 10,
                 'size' => 'solo',
+                'category' => 'topping',
                 'image_location' => '../images/ingredients/pineapple.png'
             ],
             [
@@ -172,6 +195,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 15,
                 'size' => 'large',
+                'category' => 'topping',
                 'image_location' => '../images/ingredients/pineapple.png'
             ],
             [
@@ -179,6 +203,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 10,
                 'size' => 'solo',
+                'category' => 'topping',
                 'image_location' => '../images/ingredients/mushroom.png'
             ],
             [
@@ -186,6 +211,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 15,
                 'size' => 'large',
+                'category' => 'topping',
                 'image_location' => '../images/ingredients/mushroom.png'
             ],
             [
@@ -193,6 +219,7 @@ public function run()
                 'current_stock' => 100,
                 'price' => 5,
                 'size' => 'solo',
+                'category' => 'topping',
                 'image_location' => '../images/ingredients/tomatoes.png'
             ]
         ];

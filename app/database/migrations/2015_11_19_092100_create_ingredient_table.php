@@ -19,6 +19,7 @@ class CreateIngredientTable extends Migration {
 			$table->integer('current_stock');
 			$table->float('price');
 			$table->string('size');
+			$table->enum('category',array('base','cheese','meat','chili','topping'));
 			$table->string('image_location');
 			$table->timestamps();
 		});

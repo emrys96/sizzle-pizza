@@ -18,7 +18,6 @@ class CreatePizzaDetailsTable extends Migration {
 			$table->foreign('pizza_id')->references('pizza_id')->on('pizzas');
 			$table->integer('ingredients_id')->unassigned();
 			$table->foreign('ingredients_id')->references('ingredients_id')->on('ingredients');
-			$table->enum('category',array('base','cheese','meat','chili','topping'));
 			//$table->timestamps();
 		});
 	}
