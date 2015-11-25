@@ -6,6 +6,9 @@ class LoginController extends BaseController {
 		return View::make('login');
 	}
 
+	public function home(){
+		return View::make('customerIndex');
+	}
 
 	public function processLogin(){
 		$loginData = array (
@@ -16,7 +19,7 @@ class LoginController extends BaseController {
 		
 		
 		if(Auth::attempt($loginData, true)){
-			return View::make('customerIndex');
+			return Redirect::to('/home');
 		} 
 		else
 			return Redirect::to('login');

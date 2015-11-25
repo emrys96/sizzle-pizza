@@ -63,7 +63,7 @@
 				<text><font face="Supercell-Magic" size="3" color="White">Choose your chili:</font></text>
 				<br>
 				<br>
-				<select id="chili" name="chili" multiple="multiple" class="image-picker show-html">
+				<select id="chili" name="chili[]" multiple="multiple" class="image-picker show-html">
 				  <option data-img-src="../images/pizza/redbellpepper1.png" value="11">  Red Bell Pepper  </option>
 				  <option data-img-src="../images/pizza/greenbellpepper1.png" value="12">  Green Bell Pepper  </option>
 				  <option data-img-src="../images/pizza/chiliflakes1.png" value="13">  Chili Flakes  </option>
@@ -79,7 +79,7 @@
 				<text><font face="Supercell-Magic" size="3" color="White">Choose your toppings:</font></text>
 				<br>
 				<br>
-				<select id="toppings" name="toppings" multiple="multiple" class="image-picker show-html">
+				<select id="toppings" name="toppings[]" multiple="multiple" class="image-picker show-html">
 				  <option data-img-src="../images/pizza/onions1.png" value="14">  Onions  </option>
 				  <option data-img-src="../images/pizza/mushrooms1.png" value="15">  Pineapple  </option>
 				  <option data-img-src="../images/pizza/pineapple1.png" value="16">  Mushrooms  </option>

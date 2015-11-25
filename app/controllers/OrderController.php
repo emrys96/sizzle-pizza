@@ -9,7 +9,7 @@ class OrderController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('order.index');
 	}
 
 

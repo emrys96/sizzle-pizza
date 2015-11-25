@@ -3,8 +3,11 @@
 <?php
 
 // route to show the login form
+
+
 Route::get('login', array('uses' => 'LoginController@viewLogin'));
 
+Route::get('/home', array('uses' => 'LoginController@home'));
 // route to process the form
 Route::post('login', array('uses' => 'LoginController@processLogin'));
 
@@ -17,6 +20,7 @@ Route::get('/customerindex', array('uses' => 'CustomerController@showMenu'));
 
 Route::resource('users', 'UserController');
 Route::resource('pizza', 'PizzaController');
+Route::resource('order', 'OrderController');
 
 
 
