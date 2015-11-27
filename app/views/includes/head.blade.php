@@ -89,6 +89,19 @@
     
     <link href="../bootstrap/css/core.css" type="text/css" rel="stylesheet">
     
+    <!-- Dropdown List for Menu -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" href="../examples/css/sample.css" />
+    <script src="../bootstrap/js/jquery/jquery-1.9.0.min.js"></script>
+    <!-- <msdropdown> -->
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/msdropdown/dd.css" />
+    <script src="../bootstrap/js/msdropdown/jquery.dd.js"></script>
+    <!-- </msdropdown> -->
+
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/msdropdown/skin2.css" />
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/msdropdown/flags.css" />
+
 <!--
     <script src="../bootstrap/dev/js/vendor/jquery/jquery-2.0.3.js"></script>
     <link rel="stylesheet/less" href="../bootstrap/dev/less/app.less">

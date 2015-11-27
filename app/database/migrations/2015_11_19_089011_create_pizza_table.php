@@ -16,6 +16,8 @@ class CreatePizzaTable extends Migration {
 		{
 			$table->increments('pizza_id');
 			$table->string('pizza_name');
+			$table->integer('quantity');
+			$table->float('amount');
 			$table->timestamps();
 		});
 	}

@@ -12,15 +12,15 @@ class CreateOrderDetailsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('orders_details', function(Blueprint $table)
+		Schema::create('order_details', function(Blueprint $table)
 		{
 			$table->integer('order_id')->unassigned();
 			$table->foreign('order_id')->references('order_id')->on('orders');
 			$table->integer('pizza_id')->unassigned();
 			$table->foreign('pizza_id')->references('pizza_id')->on('pizzas');
-			$table->integer('quantity');
-			$table->float('amount');
-			$table->timestamps();
+			// $table->integer('quantity');
+			// $table->float('amount');
+			// $table->timestamps();
 		});
 	}
 

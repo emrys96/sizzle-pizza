@@ -11,6 +11,7 @@ class Order extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'orders';
+	protected $primaryKey = 'order_id';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -22,7 +23,7 @@ class Order extends Eloquent {
 	
 	public function pizzas(){
 		// hasMany('ngalan sa model padulngan', 'ngalan sa junction table', 'name id sa gi-gikanan', 'name sa id sa padulngan nga junction table')
-		return $this->hasMany('Pizza','order_details','order_id','pizza_id');
+		return $this->belongsToMany('Pizza','order_details','order_id','pizza_id');
 	}
 
 	public function user(){

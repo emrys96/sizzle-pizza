@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration {
 			$table->increments('order_id');
 			$table->integer('user_id')->unassigned();
 			$table->foreign('user_id')->references('id')->on('users');
-			$table->string('to_address');
+			$table->string('toAddress');
 			$table->float('amount');
 			$table->timestamps();
 		});

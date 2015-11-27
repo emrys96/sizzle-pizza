@@ -1,24 +1,24 @@
- 
+{{ Form::model($pizza, array('action' => array('PizzaController@update', $pizza->pizza_id), 'method' => 'PUT')) }}
 
- 	{{ Form::open([
-        'route' => ['pizza.update', $pizza->pizza_id],
-        'method' => 'PUT',
-        "autocomplete" => "off",
-        "class"        => "form-horizontal"
-	]) }}
+	<div class="form-group">
+		{{ Form::label('pizza_name', 'Pizza Name:') }}
+		{{ Form::text('name', $pizza->pizza_name, array('class' => 'form-control')) }}
+	</div>
 
+	<div class="form-group">
+	{{ Form::label('meat', 'Meats:') }}
 
- 		{{Form::label('Name:')}} 
- 		{{ Form::text('pizza_name', $pizza->pizza_name) }}
+	@foreach($pizza->ingredients as $ingr)
+		@if($ingr->category == 'meat'){
+			{{ Form::text('meats[]', $ingr->ingredients_id, array('class' => 'form-control')) }}
+		@endif
+	}
+		
+	@endforeach	
+	</div>
 
- 		{{Form::label('Edit Ingredients:')}}
+	
 
- 		@foreach($pizza->ingredients as $ingr)
- 			{{Form::label($ingr->ingredient_name) }} 
- 		@endforeach
+	{{ Form::submit('Edit the Nerd!', array('class' => 'btn btn-primary')) }}
 
- 		{{Form::label('Add/Remove Ingredients:')}}
-
- 		{{Form::select('meats[]', $ingr, null, ['id' => 'meats', multiple=multiple ])}}
-
- 	{{Form::close()}}
+{{ Form::close() }}

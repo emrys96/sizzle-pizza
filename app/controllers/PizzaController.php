@@ -35,7 +35,11 @@ class PizzaController extends BaseController {
 		$pizza = new Pizza;
 
 		$pizza->pizza_name='Gabs Pizza';
+		$pizza->amount=0;
+		$quantity = Input::get('quantity');
+		$pizza->quantity = $quantity;
 		$pizza->save();
+		
 
 
 		$base = Input::get('base');
@@ -71,7 +75,16 @@ class PizzaController extends BaseController {
 			}
 		}
 		
+		$amount = 0;
 
+		foreach($pizza->ingredients as $ingr){
+			$amount = $amount + $ingr->price;
+		}
+
+		
+		$total_amount;
+
+		$pizza->amount = $amount;
 		
 		
 		$pizza->save();
@@ -103,7 +116,7 @@ class PizzaController extends BaseController {
 	public function edit($id)
 	{
 		$pizza = Pizza::find($id);
-		$ingr = $pizza->ingredients()->list('ingredient_id','ingredient_name'); 
+		$ingr = $pizza->ingredients(); //->list('ingredients_id','ingredient_name'); 
 
 		return View::make('pizza.edit')->with(array('pizza' => $pizza, 'ingr' => $ingr));
 
@@ -119,6 +132,33 @@ class PizzaController extends BaseController {
 	public function update($id)
 	{
 		//
+		$pizza = Pizza::find($id);
+
+		$pizza->pizza_name = Input::get('pizza_name');
+		
+
+
+		$base = Input::get('base');
+			$pizza->ingredients()->attach($base);
+			
+		$cheese = Input::get('cheese');
+			$pizza->ingredients()->attach($cheese);
+			
+		$meats = Input::get('meats');
+
+		if(sizeof($meats) != 0) {
+			foreach ($meats as $meat) {
+			$pizza->ingredients()->attach($meat);
+			
+			}	
+		}
+		
+
+		
+		
+		$pizza->save();
+
+
 	}
 
 
