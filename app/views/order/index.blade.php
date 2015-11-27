@@ -25,9 +25,11 @@
 		              <td><div align="center"><strong>Pizza ID</strong></div></td>
 		              <td><div align="center"><strong>Pizza Name</strong></div></td>
 		              <td><div align="center"><strong>Pizza Details</strong></div></td>
-		              <td><div align="center"><strong>Price</strong></div></td>
 		              <td><div align="center"><strong>Quantity</strong></div></td>
-		              <td><div align="center"><strong>Action</strong></div></td>
+		              <td><div align="center"><strong>Price</strong></div></td>
+		              <td><div align="center"><strong></strong></div></td>
+		              <td><div align="center"><strong></strong></div></td>
+		              
 		            </tr>
 		           
 		            	
@@ -40,8 +42,15 @@
 								{{ $ingr->ingredient_name }},    
 							@endforeach
 						</td>
-						<td align="right"> P {{ $pizza->amount }}.00 </td>
 						<td> <center> {{ $pizza->quantity }} </center></td>
+						<td align="right"> P {{ $pizza->amount * $pizza->quantity }}.00 </td>
+						<td> 
+							<center> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+								 <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+								 
+
+						 	</center>
+						</td>
 		              </tr>
 		            @endforeach	
 		          </table>
@@ -51,5 +60,10 @@
 		</div>	
 
 	</div>	
+	<div>
+		<center> <button type="button" class="btn btn-default"> <a href="order/create">
+ 				 Add Pizza <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> </a>
+		</center>
+	</div>
 
 @stop

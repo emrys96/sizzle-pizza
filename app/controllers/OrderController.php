@@ -10,7 +10,7 @@ class OrderController extends \BaseController {
 	public function index()
 	{
 		// get all the orders
-		$orders = Order::find(6);//where('user_id', '=', Auth::user()->id)->get();
+		$orders = Order::find(16);//where('user_id', '=', Auth::user()->id)->get();
 
 
 		return View::make('order.index')
@@ -37,15 +37,15 @@ class OrderController extends \BaseController {
 	public function store()
 	{
 		$user = User::find(Auth::user()->id);
-		$order = new Order;
-		$order->user()->associate($user);
+		$order= Order::find(16);
+		//$order->user()->associate($user);
 		$order->toAddress = 'Caimito St., Balite Drive, Brgy. Santiago';
 		$order->amount = 125.00;
 		$order->save();
 
 		$pizza = new Pizza;
 
-		$pizza->pizza_name='Gabos Pizza';
+		$pizza->pizza_name='Jets Pizza';
 		$pizza->amount=0;
 		$quantity = Input::get('quantity');
 		$pizza->quantity = $quantity;
@@ -103,6 +103,8 @@ class OrderController extends \BaseController {
 		$order->pizzas()->attach($pizza);
 		// $order->pizzas->quantity = 5;
 		$order->save();
+
+		return Redirect::to('/order/create');
 		
 	}
 
