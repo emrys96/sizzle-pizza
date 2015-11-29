@@ -71,7 +71,7 @@
 		<div class="row">
 			<center> 
 				<!-- <div class="row"> -->
-				<button type="button" class="btn btn-default"> <a href="pizza/create">
+				<button type="button" class="btn btn-default"> <a href="/order/{$order->order_id}/edit">
 	 				 Add Pizza <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> </a> </button>
 	 			<!-- </div> -->
 	 				&nbsp; &nbsp;

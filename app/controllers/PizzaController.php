@@ -33,12 +33,22 @@ class PizzaController extends BaseController {
 	{
 		//
 		$pizza = new Pizza;
+		$order_id = Input::get('order_id');
 
-		$pizza->pizza_name='Gabs Pizza';
+		$order = Order::find($order_id);
+
+	
+		$pizza->pizza_name='Jets Pizza';
 		$pizza->amount=0;
 		$quantity = Input::get('quantity');
 		$pizza->quantity = $quantity;
 		$pizza->save();
+
+
+		
+		
+		
+
 		
 
 
@@ -88,8 +98,11 @@ class PizzaController extends BaseController {
 		
 		
 		$pizza->save();
+
+		$order->pizzas()->attach($pizza);
+		$order->save();
 		//Show newly created pizza 
-		return Redirect::to('/pizza/' . $pizza->pizza_id . '');
+		return Redirect::to('/order/' . $order->order_id . '');
 	}
 
 
@@ -101,9 +114,12 @@ class PizzaController extends BaseController {
 	 */
 	public function show($id)
 	{
-		$var = Pizza::find($id);
 
-		var_dump($var);
+		$pizza = Pizza::find($id);
+
+		return View::make('pizza.show')
+			->with('pizza', $pizza);
+
 	}
 
 
@@ -171,6 +187,15 @@ class PizzaController extends BaseController {
 	public function destroy($id)
 	{
 		//
+		$pizza = Pizza::find($id);
+		//$order_id = $pizza->orders()->order_id;
+
+
+		echo $id;
+		// $order = Order::find($order_id);
+		// $order->pizzas()->detach($id);
+
+		// return Redirect::to('/order/' .$order_id. '');
 	}
 
 

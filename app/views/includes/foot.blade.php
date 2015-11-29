@@ -84,7 +84,11 @@
         })
 //
 </script>
+    
 
+    <!-- Stack Effects -->
+    <script src="../stackeffects/js/classie.js"></script>
+    <script src="../stackeffects/js/main.js"></script>
 
 
 <!-- Latest compiled and minified JavaScript -->

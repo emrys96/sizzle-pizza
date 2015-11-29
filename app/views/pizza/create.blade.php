@@ -3,7 +3,11 @@
 @section('content')
   
   
- {{ Form::open(array('url' => 'order')) }}	
+ {{ Form::open(array('url' => 'pizza')) }}	
+
+
+ 		{{Form::text('order_id', $order->order_id)}}
+
             <text><font face="Supercell-Magic" size="5" color="White"><center>Choose Ingredients</center></font></text>
 		<br>
 		<div class="col-md-8 col-md-offset-2">
@@ -78,10 +82,11 @@
 				<br>
 				<br>
 				<select id="toppings" name="toppings[]" multiple="multiple" class="image-picker show-html">
-				  <option data-img-src="../images/pizza/onions1.png" value="22">  Onions  </option>
+				 
 				  <option data-img-src="../images/pizza/mushrooms1.png" value="23">  Pineapple  </option>
 				  <option data-img-src="../images/pizza/pineapple1.png" value="25">  Mushrooms  </option>
 				  <option data-img-src="../images/pizza/tomatoes1.png" value="27">  Tomatoes  </option>
+				  <option data-img-src="../images/pizza/onions1.png" value="22">  Onions  </option>
 				  
 				</select>
 			

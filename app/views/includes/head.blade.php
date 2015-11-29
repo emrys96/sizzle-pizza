@@ -102,6 +102,14 @@
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/msdropdown/skin2.css" />
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/msdropdown/flags.css" />
 
+
+
+    <!-- Stack Effect -->
+    <!-- From: http://cssmenumaker.com/blog/tutorials/stacking-elements-with-z-index -->
+    <link rel="stylesheet" type="text/css" href="../stackeffects/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../stackeffects/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="../stackeffects/css/component.css" />
+
 <!--
     <script src="../bootstrap/dev/js/vendor/jquery/jquery-2.0.3.js"></script>
     <link rel="stylesheet/less" href="../bootstrap/dev/less/app.less">
