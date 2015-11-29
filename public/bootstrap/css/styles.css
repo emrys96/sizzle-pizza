@@ -7,3 +7,11 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
+td {
+    font-size: 12px;
+    padding: 4px 7px 2px;
+    vertical-align: bottom;
+    /*border-right: 1px solid #DFDFDF;*/
+    white-space:nowrap;
+}

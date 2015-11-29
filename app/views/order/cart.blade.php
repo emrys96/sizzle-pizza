@@ -40,26 +40,26 @@
 		            	</tr>	
 		            @else
 		            	
-			           	@foreach($orders->pizzas as $pizza)	
-			              <tr>
-			                <td> <center> {{ $pizza->pizza_id }} </center></td>
-							<td> <center> {{ $pizza->pizza_name}} </center></td>
-							<td class="absorbing-column">
-								@foreach($pizza->ingredients as $ingr)
-									{{ $ingr->ingredient_name }},    
-								@endforeach
-							</td>
-							<td> <center> {{ $pizza->quantity }} </center></td>
-							<td align="right"> P {{ $pizza->amount * $pizza->quantity }}.00 </td>
-							<td> 
-								<center> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									 <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
-									 
+		           	@foreach($orders->pizzas as $pizza)	
+		              <tr>
+		                <td> <center> {{ $pizza->pizza_id }} </center></td>
+						<td> <center> {{ $pizza->pizza_name}} </center></td>
+						<td class="absorbing-column">
+							@foreach($pizza->ingredients as $ingr)
+								{{ $ingr->ingredient_name }},    
+							@endforeach
+						</td>
+						<td> <center> {{ $pizza->quantity }} </center></td>
+						<td align="right"> P {{ $pizza->amount * $pizza->quantity }}.00 </td>
+						<td> 
+							<center> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+								 <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+								 
 
-							 	</center>
-							</td>
-			              </tr>
-			            @endforeach	
+						 	</center>
+						</td>
+		              </tr>
+		            @endforeach	
 		            @endif
 		          </table>
 		        </div>	
@@ -72,7 +72,7 @@
 		<div class="row">
 			<center> 
 				<!-- <div class="row"> -->
-				<button type="button" class="btn btn-default"> <a href="/pizza/create">
+				<button type="button" class="btn btn-default"> <a href="pizza/create">
 	 				 Add Pizza <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> </a> </button>
 	 			<!-- </div> -->
 	 				&nbsp; &nbsp;

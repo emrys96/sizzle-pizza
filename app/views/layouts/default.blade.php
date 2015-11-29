@@ -18,7 +18,7 @@
 
 	
 	
-	<br>
+	
 
 	<div class="row">
 	@yield('content')
