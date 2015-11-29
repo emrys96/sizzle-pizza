@@ -114,7 +114,7 @@ class OrderController extends \BaseController {
 		// $order->pizzas->quantity = 5;
 		$order->save();
 
-		return Redirect::to('/cart' .$order->order_id. '');
+		return Redirect::to('/order/' .$order->order_id. '/edit');
 		
 	}
 
