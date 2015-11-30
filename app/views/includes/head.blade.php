@@ -108,7 +108,7 @@
     <!-- From: http://cssmenumaker.com/blog/tutorials/stacking-elements-with-z-index -->
     <link rel="stylesheet" type="text/css" href="../stackeffects/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="../stackeffects/css/demo.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="../stackeffects/css/component.css" /> -->
+    <link rel="stylesheet" type="text/css" href="../stackeffects/css/component.css" />
 
 
     <!-- Slide Toggle Effect -->
