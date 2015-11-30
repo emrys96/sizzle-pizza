@@ -32,7 +32,7 @@ a:hover, a:focus {
 	color: #4b5f5a;
 }
 
-button {
+/*button {
 	background: rgba(0,0,0,0);
 	border: 2px solid #8d9a97;
 	color: #8d9a97;
@@ -48,22 +48,22 @@ button {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-}
+}*/
 
-h2 + button {
-	margin-top: 0;
-}
+	/*h2 + button {
+		margin-top: 0;
+	}
 
-button:hover,
-button:active {
-	border: 2px solid #4b5f5a;
-	color: #4b5f5a;
-	outline: none;
-}
+	button:hover,
+	button:active {
+		border: 2px solid #4b5f5a;
+		color: #4b5f5a;
+		outline: none;
+	}
 
-button:focus {
-	outline: none;
-}
+	button:focus {
+		outline: none;
+	}*/
 
 .container {
 	overflow: hidden;

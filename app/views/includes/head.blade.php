@@ -108,8 +108,11 @@
     <!-- From: http://cssmenumaker.com/blog/tutorials/stacking-elements-with-z-index -->
     <link rel="stylesheet" type="text/css" href="../stackeffects/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="../stackeffects/css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="../stackeffects/css/component.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="../stackeffects/css/component.css" /> -->
 
+
+    <!-- Slide Toggle Effect -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <!--
     <script src="../bootstrap/dev/js/vendor/jquery/jquery-2.0.3.js"></script>
     <link rel="stylesheet/less" href="../bootstrap/dev/less/app.less">

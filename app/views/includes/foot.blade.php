@@ -95,3 +95,36 @@
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
+
+    <!-- Slide Toggle Effect -->
+    <script>
+        $( "#meatHeader" ).click(function() {
+          $( "#meats" ).slideToggle( "fast" );
+        });
+    </script>
+
+    <script>
+        $( "#toppingsHeader" ).click(function() {
+          $( "#toppings" ).slideToggle( "fast" );
+        });
+    </script>
+
+     <script>
+        $( "#baseHeader" ).click(function() {
+          $( "#base" ).slideToggle( "fast" );
+        });
+    </script>
+
+    <script>
+        $( "#cheeseHeader" ).click(function() {
+          $( "#cheese" ).slideToggle( "fast" );
+        });
+    </script>
+
+    <script>
+        $( "#chiliHeader" ).click(function() {
+          $( "#chili" ).slideToggle( "fast" );
+        });
+    </script>
+
+    

@@ -9,7 +9,7 @@ class PizzaController extends BaseController {
 	 */
 	public function index()
 	{
-		return View::make('customizeIndex');	
+		return View::make('pizza.index');	
 	}
 
 

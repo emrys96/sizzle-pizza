@@ -37,7 +37,7 @@
 		           
 		           
 		            <tr> 
-		            		<center>  No pizza in your cart </center>
+		            		<center><font color="White" size="3">  No pizza in your cart </font></center>
 		            </tr>	
 		         
 		           

@@ -6,9 +6,10 @@
  {{ Form::open(array('url' => 'pizza')) }}	
 
 
- 		{{Form::text('order_id', $order->order_id)}}
-
-            <text><font face="Supercell-Magic" size="5" color="White"><center>Choose Ingredients</center></font></text>
+ 		{{Form::hidden('order_id', $order->order_id)}}
+ 		<br>
+ 		<br>
+        <center><img src="../images/pick.png" class="img-rounded" alt="Cinque Terre" width="379" height="250"></center>    
 		<br>
 		<div class="col-md-8 col-md-offset-2">
 		<div class="panel panel">
