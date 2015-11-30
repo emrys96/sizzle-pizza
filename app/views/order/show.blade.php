@@ -62,7 +62,7 @@
 							<a class="btn btn-success" href="{{ URL::to('/pizza/' . $pizza->pizza_id) }}"><span class="glyphicon glyphicon-search"></span></a>
 						
 				 	    	
-				 	    	{{ $pizza->pizza_id }}
+				 	    	
 				 	    	<a class="btn btn-danger" data-toggle="modal" data-target="#myModal{{$pizza->pizza_id}}"><span class="glyphicon glyphicon-trash"></span></a>
 							{{ Form::close()}}
 							

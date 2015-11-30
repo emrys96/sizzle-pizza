@@ -20,9 +20,11 @@
 				<br>
 				<br>
 				<select id="base" name="base" class="image-picker show-html">
+				<div id="wrapper">
 				  <option data-img-src="../images/pizza/dough1.png" value="1">  Dough  </option>
-				  <option data-img-src="../images/pizza/straightcut1.png" value="3">  Straight Cut Fries  </option>
+				  <option data-img-src="../images/pizza/straightcut1.png" value="2">  Straight Cut Fries  </option>
 				  <option data-img-src="../images/pizza/crisscross.png" value="3">  Crisscoss Fries  </option>
+				</div>
 				</select>
 			</div>
 

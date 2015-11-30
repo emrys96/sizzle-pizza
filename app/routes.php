@@ -21,7 +21,7 @@ Route::get('displayEditCart/{order_id}', 'OrderController@displayEditCart');
 Route::resource('users', 'UserController');
 Route::resource('pizza', 'PizzaController');
 Route::resource('order', 'OrderController');
-
+Route::resource('ingredients', 'IngredientController');
 
 
 

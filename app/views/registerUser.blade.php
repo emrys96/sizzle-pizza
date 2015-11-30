@@ -41,6 +41,7 @@
                                                           <input class="form-control" id="userpass" placeholder="Password" name="userpass" type="password" maxlength="20">
                                                         </div>
                                                         
+                                                        {{ Form::hidden('role', customer) }}
                                                         
                                                         <input class="btn btn-lg btn-primary btn-block" type="submit" name="register" value="Register">
                                                       </fieldset>

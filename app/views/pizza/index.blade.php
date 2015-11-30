@@ -4,27 +4,28 @@
   <br>
   <br>
   <!-- Base -->
-  <div class="row">
- 	
- 	<div class="column">
-  	<div class="container">
-
+  
   	 <center><img src="../images/pick.png" class="img-rounded" alt="Cinque Terre" width="379" height="250"></center> 
   	<br>
   	<br>
-	  <div class="column">
-		 	<div class="col-md-5 col-md-offset-1">
-		 		<div class="row">
+
+ <div class="container">
+ <div class="row">
+ <div class="container">
+ 	<div class="col-md-5 col-md-offset-1">
+ 		<div class="row">
 		 			<font face="Supercell-Magic"size="3" color="white"><img src="../images/1.png" width="30" height="30">&nbsp;Choose your base:</font> 
 		 			<div id="baseHeader">
 		 				<br>
 			 			<div id="wrapper">
+			 			
 						    <div class="item1"><img src="../images/menucon/base.png"></div>
 						    <div class="head2"><br><font size="4" color="white"> &nbsp; &nbsp; Base</font></div>
 						    <div class="item3">
 						    	<br>
 						    	<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
 						    </div>
+
 						</div>
 			 		</div>
 		 		</div>
@@ -54,22 +55,18 @@
 						    	
 						    </div>
 						</div>
-			 		</div>	
+			 		</div>
 		 		</div>
 
 		 		
 		 		
-				
-		 	</div>
-		</div>	
-  	</div>
+			
 
   	<br>
 
   <!-- Cheese -->
-  <div class="container">
-	  <div class="column">
-		 	<div class="col-md-5 col-md-offset-1">
+  
+		 	
 		 		<div class="row">
 		 			<font face="Supercell-Magic"size="3" color="white"><img src="../images/2.png" width="30" height="30">&nbsp;Choose your cheese:</font> 
 		 			<div id="cheeseHeader">
@@ -87,14 +84,6 @@
 		 		
 		 		<div class="row">
 			 		<div id="cheese" style="display: none;" >
-			 			<div id="wrapper">
-						    <div class="item1"><img src="../images/menucon/cheese1.png"></div>
-						    <div class="item2"><br><br><font size="4" color="white"> &nbsp; &nbsp; Quickmelt</font></div>
-						    <div class="item3">
-						    	
-						    </div>
-						</div>
-
 						<div id="wrapper">
 						    <div class="item1"><img src="../images/menucon/mozarellla.png"></div>
 						    <div class="item2"><br><br><font size="4" color="white"> &nbsp; &nbsp; Mozarella</font></div>
@@ -103,29 +92,32 @@
 						    </div>
 						</div>
 
-						
+						<div id="wrapper">
+						    <div class="item1"><img src="../images/menucon/cheese1.png"></div>
+						    <div class="item2"><br><br><font size="4" color="white"> &nbsp; &nbsp; Quickmelt</font></div>
+						    <div class="item3">
+						    	
+						    </div>
+						</div>
+	
 			 		</div>	
 		 		</div>
 
 		 		
 		 		
-				
-		 	</div>
-		</div>	
-  	</div>
+		
+	
 
 
 <!-- Meats -->
   <br>	
-  <div class="container">
-	  <div class="column">
-		 	<div class="col-md-5 col-md-offset-1">
+  
 		 		<div class="row">
 		 			<font face="Supercell-Magic"size="3" color="white"><img src="../images/3.png" width="30" height="30">&nbsp;Choose your meats:</font> 
 		 			<div id="meatHeader">
 		 				<br>
 			 			<div id="wrapper">
-						    <div class="item1"><img src="../images/menucon/pepperoni.png"></div>
+						    <div class="item1"><img src="../images/menucon/ham.png"></div>
 						    <div class="head2"><br><font size="4" color="white"> &nbsp; &nbsp; Meats</font></div>
 						    <div class="item3">
 						    	<br>
@@ -182,27 +174,20 @@
 
 		 		
 		 		
-				
-		 	</div>
-		</div>	
-  	</div>
+	
 </div>
 
 <!-- Chillis -->
-<br>
-
   
-<div class="column">
-  <div class="container">
-	  <div class="column">
-		 	<div class="col-md-5 col-md-offset-7">
+<div class="col-md-5 col-md-offset-1">
+   	
 		 		<div class="row">
 		 			<font face="Supercell-Magic"size="3" color="white"><img src="../images/4.png" width="30" height="30">&nbsp;Choose your chilis:</font> 
 		 			<div id="chiliHeader">
 		 				<br>
 			 			<div id="wrapper">
-						    <div class="item1"><img src="../images/menucon/base.png"></div>
-						    <div class="head2"><br><font size="4" color="white"> &nbsp; &nbsp; Base</font></div>
+						    <div class="item1"><img src="../images/menucon/chiliflakes.png"></div>
+						    <div class="head2"><br><font size="4" color="white"> &nbsp; &nbsp; Chilis</font></div>
 						    <div class="item3">
 						    	<br>
 						    	<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
@@ -242,15 +227,13 @@
 		 		
 		 		
 				
-		 	</div>
-		</div>	
-  	</div>
+		 	
+	
 
   <!-- Toppings -->
   <br>
-  <div class="container">
-	  <div class="column">
-		 	<div class="col-md-5 col-md-offset-7">
+  
+		 
 		 		<div class="row">
 		 				<font face="Supercell-Magic"size="3" color="white"><img src="../images/5.png" width="30" height="30">&nbsp;Choose your toppings:</font> 
 
@@ -305,14 +288,49 @@
 			 		</div>	
 		 		</div>
 
+		 		<br>
+		 		<div class="row">
+		 			<font face="Supercell-Magic"size="3" color="white"><img src="../images/6.png" width="30" height="30">&nbsp;Choose your sauce:</font> 
+		 			<div id="sauceHeader">
+		 				<br>
+			 			<div id="wrapper">
+						    <div class="item1"><img src="../images/menucon/marinara.png"></div>
+						    <div class="head2"><br><font size="4" color="white"> &nbsp; &nbsp; Cheese</font></div>
+						    <div class="item3">
+						    	<br>
+						    	<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+						    </div>
+						</div>
+			 		</div>
+		 		</div>
 		 		
+		 		<div class="row">
+			 		<div id="sauce" style="display: none;" >
+						<div id="wrapper">
+						    <div class="item1"><img src="../images/menucon/oliveoil.png"></div>
+						    <div class="item2"><br><br><font size="4" color="white"> &nbsp; &nbsp; Olive Oil</font></div>
+						    <div class="item3">
+						    	
+						    </div>
+						</div>
+
+						<div id="wrapper">
+						    <div class="item1"><img src="../images/menucon/marinara.png"></div>
+						    <div class="item2"><br><br><font size="4" color="white"> &nbsp; &nbsp; Red Sauce</font></div>
+						    <div class="item3">
+						    	
+						    </div>
+						</div>
+	
+			 		</div>	
+		 		</div>
 		 		
 				
-		 	</div>
-		</div>	
-  	</div>
-</div>	 
+		 	
+		
+	</div>	 
 </div>	
-    
+</div>    
+</div>   
 
 @stop

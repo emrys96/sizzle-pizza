@@ -9,7 +9,7 @@
 			<center><img src="../images/pizza_preview.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></center>
 			<div class="col-md-6 col-md-offset-1">
 				<!-- <div class="panel"> -->
-				<center><button><font color="white">Disassemble</font></button></center>
+				<center><button><font color="black">Disassemble</font></button></center>
 					<figure class="stack stack-queue">
 						@foreach($pizza->ingredients as $ingr)
 							<img src="{{ $ingr->image_location }}"/>

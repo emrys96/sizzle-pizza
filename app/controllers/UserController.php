@@ -43,7 +43,7 @@ class UserController extends BaseController {
 		$user->contact_no = Input::get('contactno');
 		$user->username = Input::get('username');
 		$user->password = Hash::make(Input::get('userpass'));
-
+		$user->role = Input::get('role');
 		$user->save();
 
 		echo "Successfully add";
