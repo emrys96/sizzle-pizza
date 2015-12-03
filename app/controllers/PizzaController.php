@@ -21,6 +21,7 @@ class PizzaController extends BaseController {
 	public function create()
 	{	
 		return View::make('pizza.create');
+
 	}
 
 
@@ -37,8 +38,8 @@ class PizzaController extends BaseController {
 
 		$order = Order::find($order_id);
 
-	
-		$pizza->pizza_name='Jets Pizza';
+		$pizza_name = Input::get('pizza_name');
+		$pizza->pizza_name= $pizza_name;
 		$pizza->amount=0;
 		$quantity = Input::get('quantity');
 		$pizza->quantity = $quantity;
@@ -54,11 +55,14 @@ class PizzaController extends BaseController {
 
 		$base = Input::get('base');
 			$pizza->ingredients()->attach($base);
+
+		$sauce = Input::get('sauce');
+			$pizza->ingredients()->attach($sauce);	
 			
 		$cheese = Input::get('cheese');
 			$pizza->ingredients()->attach($cheese);
 			
-		$meats = Input::get('meat');
+		$meats = Input::get('meats');
 
 		if(sizeof($meats) != 0) {
 			foreach ($meats as $meat) {
@@ -68,7 +72,7 @@ class PizzaController extends BaseController {
 		}
 		
 
-		$chilis = Input::get('chili');
+		$chilis = Input::get('chilis');
 
 		if(sizeof($chilis) != 0) {
 			foreach ($chilis as $chill) {
@@ -134,7 +138,7 @@ class PizzaController extends BaseController {
 		$pizza = Pizza::find($id);
 		$ingr = $pizza->ingredients(); //->list('ingredients_id','ingredient_name'); 
 
-		return View::make('pizza.edit')->with(array('pizza' => $pizza, 'ingr' => $ingr));
+		return View::make('pizza.index')->with(array('pizza' => $pizza, 'ingr' => $ingr));
 
 	}
 
@@ -186,16 +190,14 @@ class PizzaController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
-		$pizza = Pizza::find($id);
-		//$order_id = $pizza->orders()->order_id;
+		$order_id = Input::get('orderID');
 
+		$order = Order::find($order_id);
+		
 
-		echo $id;
-		// $order = Order::find($order_id);
-		// $order->pizzas()->detach($id);
+		$order->pizzas()->detach($id);
 
-		// return Redirect::to('/order/' .$order_id. '');
+		return Redirect::to('/order/' .$order->order_id. '');
 	}
 
 

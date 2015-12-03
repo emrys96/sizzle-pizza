@@ -11,16 +11,13 @@
 
     <script src="../bootstrap/js/image-picker.min.js"></script>
     <script src="../bootstrap/js/image-picker.js"></script>
-    <script>
-    $("select").imagepicker({
-        show_label  : false
-    })
-    </script>
-
+  
+    
    
     
 
-    <!-- Stack Effects -->
+    // <!-- Stack Effects -->
+
     <script src="../stackeffects/js/classie.js"></script>
     <script src="../stackeffects/js/main.js"></script>
 
@@ -66,5 +63,79 @@
           $( "#sauce" ).slideToggle( "fast" );
         });
     </script>
+
+
+
+    <script>
+        $(document).ready(function(){
+            $('#mode').on('change', function() {
+              if ( this.value == '0')
+              {
+                $("#delivery").show();
+                $("#pickup").hide();
+              }
+              else
+              {
+                $("#delivery").hide();
+                $("#pickup").show();
+              }
+            });
+        });
+    </script>
+
+  <!-- For Menu Labels -->
+   <script>
+     $(function() {
+      $("input#meat").change(function() {
+        var arr = $(":checkbox[id=meat]:checked").map(function() { return $(this).next().text(); }).get();
+        $("#meatDiv").text(arr.join(','));
+      });
+    });
+   </script>
+
+    <script>
+     $(function() {
+      $("input#base").change(function() {
+        var arr = $(":radio[name=base]:checked").map(function() { return $(this).next().text(); }).get();
+        $("#baseDiv").text(arr.join(','));
+      });
+    });
+   </script>
+
+   <script>
+     $(function() {
+      $("input#cheese").change(function() {
+        var arr = $(":radio[name=cheese]:checked").map(function() { return $(this).next().text(); }).get();
+        $("#cheeseDiv").text(arr.join(','));
+      });
+    });
+   </script>
+
+   <script>
+     $(function() {
+      $("input#chili").change(function() {
+        var arr = $(":checkbox[id=chili]:checked").map(function() { return $(this).next().text(); }).get();
+        $("#chiliDiv").text(arr.join(','));
+      });
+    });
+   </script>
+
+   <script>
+     $(function() {
+      $("input#topping").change(function() {
+        var arr = $(":checkbox[id=topping]:checked").map(function() { return $(this).next().text(); }).get();
+        $("#toppingDiv").text(arr.join(','));
+      });
+    });
+   </script>
+
+    <script>
+     $(function() {
+      $("input#sauce").change(function() {
+        var arr = $(":radio[id=sauce]:checked").map(function() { return $(this).next().text(); }).get();
+        $("#sauceDiv").text(arr.join(','));
+      });
+    });
+   </script>
 
     

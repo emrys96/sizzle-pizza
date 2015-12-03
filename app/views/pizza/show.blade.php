@@ -7,7 +7,7 @@
 			
 		<div class="container">
 			<center><img src="../images/pizza_preview.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></center>
-			<div class="col-md-6 col-md-offset-1">
+			<div class="col-md-12">
 				<!-- <div class="panel"> -->
 				<center><button><font color="black">Disassemble</font></button></center>
 					<figure class="stack stack-queue">
@@ -22,9 +22,9 @@
 				<!-- </div> -->
 			</div>
 
-			<div class="col-md-4">
+			<!-- <div class="col-md-4"> -->
 				<!-- <div class="panel"> -->
-				<br>
+			<!-- 	<br>
 				<br>	
 				<br>
 				<br>
@@ -47,10 +47,10 @@
 				</font>
 				<br>
 				<br>	
-				<br>
+				<br> -->
 				<!-- </div> -->
 
-			</div>	
+			<!-- </div>	 -->
 		</div><!-- /container -->
 		
 @stop	

@@ -29,6 +29,7 @@
      <script>
         var map;
         var myCenter=new google.maps.LatLng(8.238434, 124.249320);
+       
 
         function initialize()
         {
@@ -42,7 +43,11 @@
 
           google.maps.event.addListener(map, 'click', function(event) {
             placeMarker(event.latLng)
+            document.getElementById('lngclicked').value =  event.latLng.lng()
+            document.getElementById('latclicked').value = event.latLng.lat()
           });
+
+
         }
 
         var marker;

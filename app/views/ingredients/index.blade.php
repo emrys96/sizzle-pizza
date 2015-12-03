@@ -6,11 +6,11 @@
 	<font size="3" color="white">
 	<nav class="navbar navbar-inverse">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="{{ URL::to('nerds') }}">Nerd Alert</a>
+		<a class="navbar-brand" href="{{ URL::to('nerds') }}">Ingredients</a>
 	</div>
 	<ul class="nav navbar-nav">
-		<li><a href="{{ URL::to('nerds') }}">View All Nerds</a></li>
-		<li><a href="{{ URL::to('nerds/create') }}">Create a Nerd</a>
+		<li><a href="{{ URL::to('ingredients') }}">View All Ingredients</a></li>
+		<li><a href="{{ URL::to('ingredients/create') }}">Add Ingredient</a>
 	</ul>
 	</nav>
 	</font>
@@ -73,5 +73,25 @@
 		</div>	
 	</div>	
 
+<div class="modal fade" id="myModal{{$ingr->ingredients_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Are you sure you want to delete?: {{$ingr->ingredients_id}}?</p>
+	        <p>This cannot be undone.</p>
+	      </div>
+	      <div class="modal-footer">
+	       
+	          {{ Form::submit('Yes', ['class' => 'btn btn-danger']) }}
 
+	          <a type="button" class="btn btn-default" data-dismiss="modal">No</a>
+	       
+	      </div>
+	    </div>
+	  </div>
+	</div>
 @stop

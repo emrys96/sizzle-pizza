@@ -9,8 +9,11 @@ class OrderController extends \BaseController {
 	 */
 	public function index()
 	{
-	
-		return View::make('order.index');
+		
+		$orders = Order::all();
+
+		return View::make('order.index')
+			->with('orders', $orders);
 	}
 
 
@@ -34,10 +37,11 @@ class OrderController extends \BaseController {
 		$user = User::find(Auth::user()->id);
 		$order= new Order;
 		$order->user()->associate($user);
+		$order->status = 'unconfirmed';
 		$order->save();
 
 		
-		return View::make('/pizza/create')
+		return View::make('pizza.create')
 			->with('order', $order);	
 		
 	}
@@ -59,6 +63,17 @@ class OrderController extends \BaseController {
 			->with('order', $order);
 	}
 
+	public function getUserOrders()
+	{
+		//
+		$user = User::find(Auth::user()->id);
+
+		$orders= DB::table('orders')->where('user_id','=', $user->id)->orderBy('created_at','desc')->get();
+
+		return View::make('users.userOrders')
+			->with('orders', $orders);
+	}
+
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -71,7 +86,7 @@ class OrderController extends \BaseController {
 		//
 		$order = Order::find($id);
 
-		return View::make('pizza.edit')
+		return View::make('pizza.index')
 			->with('order', $order);
 	}
 
@@ -96,7 +111,7 @@ class OrderController extends \BaseController {
 
 		$pizza = new Pizza;
 
-		$pizza->pizza_name='Jets Pizza';
+		$pizza->pizza_name='Meaty Pizza';
 		$pizza->amount=0;
 		$quantity = Input::get('quantity');
 		$pizza->quantity = $quantity;
@@ -159,6 +174,28 @@ class OrderController extends \BaseController {
 		return Redirect::to('/order/' .$order->order_id. '');
 	}
 
+	public function inputOrderDetails($id) {
+
+		$order = Order::find($id);
+
+		return View::make('order.input')
+			->with('order', $order);
+	}
+
+	public function getCoordinates($id) {
+
+		$order = Order::find($id);
+
+		$lng = Input::get('longitude');
+		$lat = Input::get('latitude');
+
+		$order->longitude = $lng;
+		$order->latitude = $lat;
+		$order->save;
+
+		echo 'Successful';
+	}
+
 
 	/**
 	 * Remove the specified resource from storage.
@@ -168,14 +205,7 @@ class OrderController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
-		$order = Order::find($id);
-		$pizza = Input::get('pizza_id');
-
-
-		$order->pizzas()->detach($pizza);
-
-		return Redirect::to('/order/' .$id. '');
+			
 	}
 
 

@@ -23,7 +23,7 @@ class IngredientController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('ingredients.create');
 	}
 
 

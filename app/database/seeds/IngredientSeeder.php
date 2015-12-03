@@ -6,7 +6,7 @@ class IngredientSeeder extends Seeder
 public function run()
 {
     $ingredients = [
-            [
+                       [
                 'ingredient_name' => 'dough',
                 'current_stock' => 100,
                 'price' => 25,
@@ -29,6 +29,22 @@ public function run()
                 'size' => 'solo',
                 'category' => 'base',
                 'image_location' => '../images/ingredients/crisscross.png'
+            ],
+            [
+                'ingredient_name' => 'marinara',
+                'current_stock' => 100,
+                'price' => 0,
+                'size' => 'solo',
+                'category' => 'sauce',
+                'image_location' => '../images/ingredients/marinara.png'
+            ],
+            [
+                'ingredient_name' => 'olive oil',
+                'current_stock' => 100,
+                'price' => 0,
+                'size' => 'solo',
+                'category' => 'sauce',
+                'image_location' => '../images/ingredients/oliveoil.png'
             ],
             [
                 'ingredient_name' => 'mozzarella',
@@ -111,14 +127,6 @@ public function run()
                 'image_location' => '../images/ingredients/chiliflakes.png'
             ],
             [
-                'ingredient_name' => 'onions',
-                'current_stock' => 100,
-                'price' => 5,
-                'size' => 'solo',
-                'category' => 'topping',
-                'image_location' => '../images/ingredients/onion.png'
-            ],
-            [
                 'ingredient_name' => 'pineapple',
                 'current_stock' => 100,
                 'price' => 10,
@@ -141,7 +149,17 @@ public function run()
                 'size' => 'solo',
                 'category' => 'topping',
                 'image_location' => '../images/ingredients/tomatoes.png'
+            ],
+            [
+                'ingredient_name' => 'onions',
+                'current_stock' => 100,
+                'price' => 5,
+                'size' => 'solo',
+                'category' => 'topping',
+                'image_location' => '../images/ingredients/onion.png'
             ]
+            
+
         ];
 
         foreach ($ingredients as $ingredient) {

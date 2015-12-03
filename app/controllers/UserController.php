@@ -22,7 +22,7 @@ class UserController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create()	
 	{
 		return View::make('registerUser');
 	}

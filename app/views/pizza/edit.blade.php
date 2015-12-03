@@ -110,5 +110,9 @@
 	</div>
 	 {{ Form::close() }}
  </div>
-
+<script>
+    $("select").imagepicker({
+        show_label  : false
+    })
+    </script>
 @stop

@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div class="container">
+	
 		<div class="row">
 			<!-- <div class="col-md-12"> -->
 
@@ -29,7 +29,7 @@
 		            <tr>
 		              <td><div align="center"><strong>Pizza ID</strong></div></td>
 		              <td><div align="center"><strong>Pizza Name</strong></div></td>
-		              <td><div align="center"><strong>Pizza Details</strong></div></td>
+		              <td style="width:400px"><div align="center"><strong>Pizza Details</strong></div></td>
 		              <td><div align="center"><strong>Quantity</strong></div></td>
 		              <td><div align="center"><strong>Price</strong></div></td>
 		              <td><div align="center"><strong></strong></div></td>
@@ -47,7 +47,7 @@
 		              <tr>
 		                <td> <center> {{ $pizza->pizza_id }} </center></td>
 						<td> <center> {{ $pizza->pizza_name}} </center></td>
-						<td class="absorbing-column">
+						<td style="width:400px">
 							@foreach($pizza->ingredients as $ingr)
 								{{ $ingr->ingredient_name }},    
 							@endforeach
@@ -55,7 +55,7 @@
 
 						<td> <center> {{ $pizza->quantity }} </center></td>
 
-						<td align="right"> P {{ $pizza->amount * $pizza->quantity }}.00 </td>
+						<td align="right"> P {{ $total = $pizza->amount * $pizza->quantity }}.00 </td>
 
 						<td> 
 							{{ Form::open(array('class' => 'pull-right')) }}
@@ -71,32 +71,40 @@
 
 						 	
 		              </tr>
-		            @endforeach	
+		              
+		            @endforeach
+		            <tr>
+		            	<td><strong>TOTAL:</strong> </td>
+		            	<td> </td>
+		            	<td> </td>
+		            	<td> </td>
+		            	<td align="right"> P {{ $total =  $total }}.00 </td>
+		            	<td> </td>
+		            </tr>	
 		            @endif
 		          </table>
 		        </div>	
 			</div>	
 			</div>
 		</div>	
-	</div>	
+		
 
 	
-	<div>
+	
 		<div class="row">
 			<center> 
 				<!-- <div class="row"> -->
 				<button type="button" class="btn btn-default"> <a href="{{ URL::route('order.edit', $order->order_id) }}">
-	 				 Add Pizza <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> </a> </button>
-	 			<!-- </div> -->
-	 				&nbsp; &nbsp;
+	 				 Add Pizza <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> </a> </button> 
+	 				
 	 			<!-- <div class="row"> -->
-				<button type="button" class="btn btn-default"> <a href="order/create">
-	 				 Carry Out <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> </a> </button>
+				<button type="button" class="btn btn-default"> <a href="{{ URL::route('carryOut', $order->order_id) }}">
+	 				 Submit Order <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> </a> </button>
 	 			<!-- </div> -->
 	 				 
 			</center>
 		</div>
-	</div>
+	
 
 
 		<!-- Modal -->
@@ -113,6 +121,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        {{ Form::open(array('url' => 'pizza/' . $pizza->pizza_id)) }}
+	          {{ Form::hidden('orderID', $order->order_id)}}
 	          {{ Form::hidden('_method', 'DELETE') }}
 	          {{ Form::submit('Yes', ['class' => 'btn btn-danger']) }}
 

@@ -13,15 +13,30 @@ Route::post('login', array('uses' => 'LoginController@processLogin'));
 
 Route::any('/logout', array('uses' => 'LoginController@logout'));
 
-Route::get('/cart', array('uses' => 'OrderController@cart'));
+
 
 Route::get('/customerindex', array('uses' => 'CustomerController@showMenu'));
 Route::get('displayEditCart/{order_id}', 'OrderController@displayEditCart');
 
+//Resource Routes
 Route::resource('users', 'UserController');
 Route::resource('pizza', 'PizzaController');
 Route::resource('order', 'OrderController');
 Route::resource('ingredients', 'IngredientController');
+
+
+//Additional Routes
+
+Route::any('userOrders', array('uses' => 'OrderController@getUserOrders'));
+Route::any('/carryOut/{id}',[
+        "as" => "carryOut",
+        "uses" => "OrderController@inputOrderDetails"
+]);
+
+Route::any('/getCoordinates{id}',[
+        "as" => "getCoordinates",
+        "uses" => "OrderController@getCoordinates"
+]);
 
 
 

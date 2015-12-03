@@ -18,9 +18,9 @@
                 
                     <td><center><a class="highlightit" href=""><img src="../images/changeinfo.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td> 
               
-                    <td><center><a class="highlightit"><img src="../images/orderhistory.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td>
+                    <td><center><a class="highlightit" href="/userOrders"><img src="../images/orderhistory.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td>
                    
-                    <td><center><a class="highlightit"><img src="../images/help.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td> 
+                    <td><center><a class="highlightit" href="/logout"><img src="../images/help.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td> 
                 </tr>               
               </thead>          
             </table>
