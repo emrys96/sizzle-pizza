@@ -86,13 +86,13 @@ class OrderController extends \BaseController {
 		//
 		$order = Order::find($id);
 
-		return View::make('pizza.index')
+		return View::make('pizza.create')
 			->with('order', $order);
 	}
 
 
 	/**
-	 * Update the specified resource in storage.
+	 * Update the specified resource in storage.x
 	 *
 	 * @param  int  $id
 	 * @return Response

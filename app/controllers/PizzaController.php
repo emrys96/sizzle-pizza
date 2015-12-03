@@ -135,11 +135,7 @@ class PizzaController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		$pizza = Pizza::find($id);
-		$ingr = $pizza->ingredients(); //->list('ingredients_id','ingredient_name'); 
-
-		return View::make('pizza.index')->with(array('pizza' => $pizza, 'ingr' => $ingr));
-
+		
 	}
 
 
