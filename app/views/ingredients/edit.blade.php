@@ -11,25 +11,16 @@
 		<br>
 		<br>
 		<div class="col-md-6 col-md-offset-3">
-		{{ Form::open(array('url' => 'ingredients')) }}
+		{{ Form::model($ingredient, array('route' => array('ingredient.update', $ingredient->ingredient_id), 'method' => 'PUT')) }}		
 			<center>
 				<div class="form-group">
 						<font size="3" color="white">{{ Form::label('ingr_name', 'Name:')}}</font> &nbsp;
-						<font size="3" color="black">{{ Form::text('ingrName')}}</font>
+						<font size="3" color="black">{{ Form::label('ingr_name', $ingredient->ingredient_name)}}</font>
 				</div>
 				<br>
 				<div class="form-group">
 				<font size="3" color="white">{{ Form::label('cat', 'Category:')}}</font> &nbsp;
-				<font size="3" color="black">
-					<select id="category" name="category">
-						<option value="base">Base</option>
-						<option value="cheese">Cheese</option>
-						<option value="meat">Meat</option>
-						<option value="chili">Chili</option>
-						<option value="topping">Topping</option>
-						<option value="sauce">Sauce</option>
-					</select>
-				</font>
+				<font size="3" color="black">{{ Form::label('category', $ingredient->category)}}</font>
 			</div>
 				<br>
 				<div class="form-group">

@@ -22,7 +22,7 @@ Route::get('displayEditCart/{order_id}', 'OrderController@displayEditCart');
 Route::resource('users', 'UserController');
 Route::resource('pizza', 'PizzaController');
 Route::resource('order', 'OrderController');
-Route::resource('ingredients', 'IngredientController');
+Route::resource('ingredient', 'IngredientController');
 
 
 //Additional Routes
@@ -36,6 +36,21 @@ Route::any('/carryOut/{id}',[
 Route::any('/getCoordinates{id}',[
         "as" => "getCoordinates",
         "uses" => "OrderController@getCoordinates"
+]);
+
+Route::any('/viewOrder/{id}',[
+        "as" => "viewOrder",
+        "uses" => "OrderController@viewOrder"
+]);
+
+Route::any('/viewAllOrders',[
+        "as" => "viewAllOrder",
+        "uses" => "OrderController@viewAllOrders"
+]);
+
+Route::any('/updateStatus/{id}',[
+        "as" => "updateStatus",
+        "uses" => "OrderController@updateStatus"
 ]);
 
 

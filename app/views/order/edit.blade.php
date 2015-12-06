@@ -1,89 +1,102 @@
 @extends('layouts.default')
 
+
 @section('content')
-<div class="container">
-		<div class="row">
-			<!-- <div class="col-md-12"> -->
+ 
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1><center><font face="Supercell-Magic" size="4" color="white">Order Details</font></center></h1>
+	<br>
+	<br>
+	<div class="container">
+		<div class="col-md-6 col-md-offset-1">
+	{{ Form::model($order, array('route' => array('order.update', $order->order_id), 'method' => 'PUT')) }}		
+	
+			
+				<div class="form-group">
+						<font size="3" color="white">{{ Form::label('orderID', 'Order ID:')}}</font>
+						<font size="3" color="white">{{ Form::label('order_id', $order->order_id)}}</font>
+				</div>
 
-			<center><img src="../images/placeorder.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></center>
-				<div class="container">
-					<div class="col-md-10">	
-					<text><font face="Supercell-Magic" size="3" color="White">{{Auth::user()->username}}'s Cart!</font></text>
-					</div>
-				</div>	
-			<!-- <div> -->
-		</div>
-
-		<div class="row">
-			<br>
-			<div class="container"> 
-			<div class="col-md-12">	 	
-		        <div class="panel panel-default">
-
-
-		          <table class= "table table-striped table-hover"border="0" cellpadding="0" cellspacing="0">
-		            <tr>
-		              <td><div align="center"><strong>Pizza ID</strong></div></td>
-		              <td><div align="center"><strong>Pizza Name</strong></div></td>
-		              <td><div align="center"><strong>Pizza Details</strong></div></td>
-		              <td><div align="center"><strong>Quantity</strong></div></td>
-		              <td><div align="center"><strong>Price</strong></div></td>
-		              <td><div align="center"><strong></strong></div></td>
-		              <td><div align="center"><strong></strong></div></td>
-		              
-		            </tr>
-		           
-		            @if(sizeof($orders->pizzas) == 0)
-		            	<tr> 
-		            		<center> <text> No pizza in your cart <text> </center>
-		            	</tr>	
-		            @else
-		            	
-		           	@foreach($orders->pizzas as $pizza)	
-		              <tr>
-		                <td> <center> {{ $pizza->pizza_id }} </center></td>
-						<td> <center> {{ $pizza->pizza_name}} </center></td>
-						<td class="absorbing-column">
-							@foreach($pizza->ingredients as $ingr)
-								{{ $ingr->ingredient_name }},    
+				<div class="form-group">
+						<font size="3" color="white">{{ Form::label('ingr_name', 'Customer Name:')}}</font>
+						<font size="3" color="white">{{ Form::label('ingrName', Auth::user()->name)}}</font>
+				</div>
+			
+				
+				<div class="form-group">
+					<font size="3" color="white">{{ Form::label('summary', 'Pizza List:')}}</font>
+						<table class="table table-striped">
+							<tr>
+								<td style="width:100px"><strong> Pizza Name </strong> </td>
+								<td style="width:70px"> <strong> Price </strong> </td>
+							</tr>
+							@foreach($order->pizzas as $pizza)	
+							<tr>
+								<td style="width:100px"> {{ $pizza->pizza_name }} </td>
+								<td style="width:70px"> {{ $pizza->amount * $pizza->quantity }} </td>	
+							</tr>
 							@endforeach
-						</td>
-						<td> <center> {{ $pizza->quantity }} </center></td>
-						<td align="right"> P {{ $pizza->amount * $pizza->quantity }}.00 </td>
-						<td> 
-							<center> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-								 <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
-								 
+						<table>
+					
+				</div>	
+				<div class="form-group">
+						<font size="3" color="white">{{ Form::label('ingr_name', 'Delivery Mode:')}}</font>
+						<font size="3" color="black">
+							<select id='mode'>
+								<option value="0">Delivery</option>
+								<option value="1">Pick-up</option>
+							</select>
+						</font>
+				</div>
 
-						 	</center>
-						</td>
-		              </tr>
-		            @endforeach	
-		            @endif
-		          </table>
-		        </div>	
-			</div>	
-			</div>
-		</div>	
+				
 
-	</div>	
-	<div>
-		<div class="row">
-			<center> 
-				<!-- <div class="row"> -->
-				<button type="button" class="btn btn-default"> <a href="/order/{$order->order_id}/edit">
-	 				 Add Pizza <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> </a> </button>
-	 			<!-- </div> -->
-	 				&nbsp; &nbsp;
-	 			<!-- <div class="row"> -->
-				<button type="button" class="btn btn-default"> <a href="order/create">
-	 				 Carry Out <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> </a> </button>
-	 			<!-- </div> -->
-	 				 
-			</center>
+				
+				<div class="container" id="delivery">
+					<div class="col-md-8">
+						<div id="googleMap" style="width:100%;height:380px;"></div>
+					</div>
+
+					<div>
+						<div>Longitude: 
+						 {{ Form::text('lng', null, ['size' => '30x5', 'id' => 'lngclicked']) }}</span>
+						</div>
+						<div>Latitude: 
+						  <input name="lat" type="text" id="latclicked"></span>
+						</div>
+					</div>
+
+
+				</div>
+
+				<div style="display:none;"class="container" id="pickup">
+					<div class="col-md-8">
+						<font size="3" color="white">{{ Form::label('timeL', 'Pick-up Time:')}}</font>
+						<font size="3" color="black">{{ Form::text('time')}}</font>
+					</div>
+				</div>
+
+
+				
+
+				<br>
+				<br>
+				
+				
+				
+
+				{{ Form::submit('Submit Edit', array('class' => 'btn btn-primary')) }}
+			
+			
+			
+				<br>
 		</div>
 	</div>
+	
+	{{ Form::close() }}
 
 
-{{ Form::close() }}
 @stop

@@ -24,54 +24,11 @@
       <link rel="stylesheet" href="/resources/demos/style.css">
 
 
+      
      <!-- Google Maps  -->
-     <script src="http://maps.googleapis.com/maps/api/js"></script>
-     <script>
-        var map;
-        var myCenter=new google.maps.LatLng(8.238434, 124.249320);
-       
-
-        function initialize()
-        {
-        var mapProp = {
-          center:myCenter,
-          zoom:14,
-          mapTypeId:google.maps.MapTypeId.ROADMAP
-          };
-
-          map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-          google.maps.event.addListener(map, 'click', function(event) {
-            placeMarker(event.latLng)
-            document.getElementById('lngclicked').value =  event.latLng.lng()
-            document.getElementById('latclicked').value = event.latLng.lat()
-          });
-
-
-        }
-
-        var marker;
-
-        function placeMarker(location) {
-          if ( marker ) {
-            marker.setPosition(location);
-          } else {
-            marker = new google.maps.Marker({
-              position: location,
-              map: map            
-            });
-          }
-
-          marker.setMap(map);
-
-          var infowindow = new google.maps.InfoWindow({
-            content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
-          });
-          infowindow.open(map,marker);
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+     <script src="http://maps.googleapis.com/maps/api/js" type="text/javascript"></script>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   
 
     <!-- Slider Style -->
     <style> 

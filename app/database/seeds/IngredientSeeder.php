@@ -10,7 +10,7 @@ public function run()
                 'ingredient_name' => 'dough',
                 'current_stock' => 100,
                 'price' => 25,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'base',
                 'image_location' => '../images/ingredients/base.png'
             ],
@@ -18,7 +18,7 @@ public function run()
                 'ingredient_name' => 'shoestring fries',
                 'current_stock' => 100,
                 'price' => 20,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'base',
                 'image_location' => '../images/ingredients/shoestring.png'
             ],
@@ -26,7 +26,7 @@ public function run()
                 'ingredient_name' => 'crisscross fries',
                 'current_stock' => 100,
                 'price' => 25,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'base',
                 'image_location' => '../images/ingredients/crisscross.png'
             ],
@@ -34,7 +34,7 @@ public function run()
                 'ingredient_name' => 'marinara',
                 'current_stock' => 100,
                 'price' => 0,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'sauce',
                 'image_location' => '../images/ingredients/marinara.png'
             ],
@@ -42,7 +42,7 @@ public function run()
                 'ingredient_name' => 'olive oil',
                 'current_stock' => 100,
                 'price' => 0,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'sauce',
                 'image_location' => '../images/ingredients/oliveoil.png'
             ],
@@ -50,7 +50,7 @@ public function run()
                 'ingredient_name' => 'mozzarella',
                 'current_stock' => 100,
                 'price' => 25,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'cheese',
                 'image_location' => '../images/ingredients/mozzarella.png'
             ],
@@ -58,7 +58,7 @@ public function run()
                 'ingredient_name' => 'quickmelt',
                 'current_stock' => 100,
                 'price' => 19,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'cheese',
                 'image_location' => '../images/ingredients/quickmelt.png'
             ],
@@ -66,7 +66,7 @@ public function run()
                 'ingredient_name' => 'pepperoni',
                 'current_stock' => 100,
                 'price' => 20,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'meat',
                 'image_location' => '../images/ingredients/pepperoni.png'
             ],
@@ -74,7 +74,7 @@ public function run()
                 'ingredient_name' => 'hungarian sausage',
                 'current_stock' => 100,
                 'price' => 20,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'meat',
                 'image_location' => '../images/ingredients/sausage.png'
             ],
@@ -82,7 +82,7 @@ public function run()
                 'ingredient_name' => 'ham',
                 'current_stock' => 100,
                 'price' => 15,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'meat',
                 'image_location' => '../images/ingredients/ham.png'
             ],
@@ -90,7 +90,7 @@ public function run()
                 'ingredient_name' => 'hotdog',
                 'current_stock' => 100,
                 'price' => 15,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'meat',
                 'image_location' => '../images/ingredients/hotdog.png'
             ],
@@ -98,7 +98,7 @@ public function run()
                 'ingredient_name' => 'bacon',
                 'current_stock' => 100,
                 'price' => 15,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'meat',
                 'image_location' => '../images/ingredients/bacon.png'
             ],
@@ -106,7 +106,7 @@ public function run()
                 'ingredient_name' => 'green bell pepper',
                 'current_stock' => 100,
                 'price' => 10,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'chili',
                 'image_location' => '../images/ingredients/greenbellpepper.png'
             ],
@@ -114,7 +114,7 @@ public function run()
                 'ingredient_name' => 'red bell pepper',
                 'current_stock' => 100,
                 'price' => 10,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'chili',
                 'image_location' => '../images/ingredients/redbellpepper.png'
             ],
@@ -122,7 +122,7 @@ public function run()
                 'ingredient_name' => 'chili flakes',
                 'current_stock' => 100,
                 'price' => 5,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'chili',
                 'image_location' => '../images/ingredients/chiliflakes.png'
             ],
@@ -130,7 +130,7 @@ public function run()
                 'ingredient_name' => 'pineapple',
                 'current_stock' => 100,
                 'price' => 10,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'topping',
                 'image_location' => '../images/ingredients/pineapple.png'
             ],
@@ -138,7 +138,7 @@ public function run()
                 'ingredient_name' => 'mushroom',
                 'current_stock' => 100,
                 'price' => 10,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'topping',
                 'image_location' => '../images/ingredients/mushroom.png'
             ],
@@ -146,7 +146,7 @@ public function run()
                 'ingredient_name' => 'tomatoes',
                 'current_stock' => 100,
                 'price' => 5,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'topping',
                 'image_location' => '../images/ingredients/tomatoes.png'
             ],
@@ -154,7 +154,7 @@ public function run()
                 'ingredient_name' => 'onions',
                 'current_stock' => 100,
                 'price' => 5,
-                'size' => 'solo',
+                // 'size' => 'solo',
                 'category' => 'topping',
                 'image_location' => '../images/ingredients/onion.png'
             ]

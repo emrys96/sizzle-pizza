@@ -12,9 +12,8 @@
  
  <div class="row">
 {{ Form::open(array('url' => 'pizza')) }}	
-	
-	{{Form::hidden('order_id', $order->order_id)}}
-
+	{{ Form::label('id', $order->order_id) }}	
+	<input type="hidden" name="order" value="{{ $order->order_id }}" />
 	<center><font face="Supercell-Magic" size="4" color="white">
 			{{ Form::label('Name', 'Pizza Name:')}}
 			<font color="black">{{ Form::text('pizza_name') }}</font>

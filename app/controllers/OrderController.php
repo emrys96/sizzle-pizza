@@ -41,9 +41,8 @@ class OrderController extends \BaseController {
 		$order->save();
 
 		
-		return View::make('pizza.create')
-			->with('order', $order);	
-		
+		return Redirect::to('/pizza/create')
+			->with('order', $order->order_id);	
 	}
 
 
@@ -61,6 +60,10 @@ class OrderController extends \BaseController {
 
 		return View::make('order.show')
 			->with('order', $order);
+
+
+		//Test Map
+		
 	}
 
 	public function getUserOrders()
@@ -68,8 +71,8 @@ class OrderController extends \BaseController {
 		//
 		$user = User::find(Auth::user()->id);
 
-		$orders= DB::table('orders')->where('user_id','=', $user->id)->orderBy('created_at','desc')->get();
-
+		$orders= DB::table('orders')->where('user_id','=', $user->id)->orderBy('created_at','desc')->paginate(10);
+		
 		return View::make('users.userOrders')
 			->with('orders', $orders);
 	}
@@ -86,7 +89,7 @@ class OrderController extends \BaseController {
 		//
 		$order = Order::find($id);
 
-		return View::make('pizza.create')
+		return View::make('order.edit')
 			->with('order', $order);
 	}
 
@@ -99,79 +102,32 @@ class OrderController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$order = Order::find($id);
 
-		$user = User::find(Auth::user()->id);
-		$order= Order::find($id);
-		$order->user()->associate($user);
-		$order->toAddress = 'Caimito St., Balite Drive, Brgy. Santiago';
-		$order->amount = 125.00;
-		$order->save();
-		
+		$lng = Input::get('lng');
+		$lat = Input::get('lat');
 
-		$pizza = new Pizza;
-
-		$pizza->pizza_name='Meaty Pizza';
-		$pizza->amount=0;
-		$quantity = Input::get('quantity');
-		$pizza->quantity = $quantity;
-		$pizza->save();
-		
-
-
-		$base = Input::get('base');
-			$pizza->ingredients()->attach($base);
-			
-		$cheese = Input::get('cheese');
-			$pizza->ingredients()->attach($cheese);
-			
-		$meats = Input::get('meat');
-
-		if(sizeof($meats) != 0) {
-			foreach ($meats as $meat) {
-			$pizza->ingredients()->attach($meat);
-			
-			}	
-		}
-		
-
-		$chilis = Input::get('chili');
-
-		if(sizeof($chilis) != 0) {
-			foreach ($chilis as $chill) {
-			$pizza->ingredients()->attach($chill);
-			}	
-		}
-		
-
-		$toppings = Input::get('toppings');
-
-		if(sizeof($toppings) != 0){
-			foreach ($toppings as $topping) {
-			$pizza->ingredients()->attach($topping);
-			}
-		}
-		
-		$amount = 0;
-
-		foreach($pizza->ingredients as $ingr){
-			$amount = $amount + $ingr->price;
-		}
-
-		
-		$total_amount;
-
-		$pizza->amount = $amount;
-		
-		
-		$pizza->save();
-
-		$order->pizzas()->attach($pizza);
-
-
+		$order->lng = $lng;
+		$order->lat = $lat;
 		$order->save();
 
-		return Redirect::to('/order/' .$order->order_id. '');
+		return Redirect::to('/home');
+	}
+
+	public function viewOrder($id){
+
+		$order = Order::find($id);
+
+		return View::make('order.view')
+			->with('order', $order);
+	}
+
+	public function viewAllOrders(){
+
+		$orders = DB::table('orders')->orderBy('created_at','desc')->paginate(10);
+
+		return View::make('order.list')
+			->with('orders', $orders);
 	}
 
 	public function inputOrderDetails($id) {
@@ -182,16 +138,55 @@ class OrderController extends \BaseController {
 			->with('order', $order);
 	}
 
+	public function updateStatus($id){
+		$id = Input::get('order_id');
+		$stat = Input::get('status');
+
+		$order = Order::find($id);
+
+		$order->status = $stat;
+		$order->save();
+	}
 	public function getCoordinates($id) {
 
 		$order = Order::find($id);
 
-		$lng = Input::get('longitude');
-		$lat = Input::get('latitude');
+		//Get the time
+		$time = Input::get('time');
+		//Get the input address
+		$addr = Input::get('address');
+		//Get the mode of delivery
+		$mode = Input::get('mode');
+		//Get the longitude
+		$lng = Input::get('lng');
+		//Get the latitute
+		$lat = Input::get('lat');
 
-		$order->longitude = $lng;
-		$order->latitude = $lat;
-		$order->save;
+		//Appends all the newly input infos 
+
+		//Check if there is addr
+		if($addr)
+			$order->toAddress = $addr;
+		else
+			$order->toAddress = "N/A";
+
+
+	
+
+		//Check the mode then save
+		if($mode == 0){
+			$order->mode = "delivery";
+			$order->lng = $lng;
+			$order->lat = $lat;
+		}	
+		else{
+			$order->mode = "pick-up";
+			$order->time = $time;
+		}
+			
+
+		//Saves the changes
+		$order->save();
 
 		echo 'Successful';
 	}

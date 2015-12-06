@@ -11,8 +11,8 @@
 	<br>
 	<br>
 	<div class="container">
-		<div class="col-md-6 col-md-offset-1">
-	{{ Form::model($order, array('action' => array('OrderController@getCoordinates', $order->order_id), 'method' => 'PUT')) }}
+		<div class="col-md-6 col-md-offset-2">
+	{{ Form::model($order, array('route' => array('getCoordinates', $order->order_id), 'method' => 'PUT')) }}		
 	
 			
 				<div class="form-group">
@@ -42,10 +42,12 @@
 						<table>
 					
 				</div>	
+
+			
 				<div class="form-group">
 						<font size="3" color="white">{{ Form::label('ingr_name', 'Delivery Mode:')}}</font>
 						<font size="3" color="black">
-							<select id='mode'>
+							<select id="mode" name="mode">
 								<option value="0">Delivery</option>
 								<option value="1">Pick-up</option>
 							</select>
@@ -56,21 +58,36 @@
 
 				
 				<div class="container" id="delivery">
-					<div class="col-md-8">
-						<div id="googleMap" style="width:100%;height:380px;"></div>
-					</div>
+					<div class="col-md-6 col-md-offset-1">
+						<div class="form-group">
+							<lable for=""><font size="3" color="white">Address:</font></label>
+							<input type="text" class="form-control input-sm" name="address">
+						</div>	
 
-					<div>
-						<div>Long: 
-						  <input name="longitude" type="label" id="lngclicked"></span>
-						</div>
-						<div>Lat: 
-						  <input name="latitude" type="text" id="latclicked"></span>
-						</div>
-					</div>
+						<div class="form-group">
+							<lable for=""><font size="3" color="white">Map:</font></label>
+							
+							<div id="map-canvas"></div>
+						</div>	
+						
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-4 col-md-offset-1">
+									<lable for=""><font size="3" color="white">Lat:</font></label>
+									<input type="text" class="form-control input-sm" name="lat" id="lat">
+								</div>
 
+								<div class="col-md-4 col-md-offset-1">
+									<lable for=""><font size="3" color="white">Lng:</font></label>
+									<input type="text" class="form-control input-sm" name="lng" id="lng" width="100">
+								</div>
+							</div>
+						</div>		
 
+					</div>							
 				</div>
+
+
 
 				<div style="display:none;"class="container" id="pickup">
 					<div class="col-md-8">
@@ -88,15 +105,73 @@
 				
 				
 
-				{{ Form::submit('Submit Edit', array('class' => 'btn btn-primary')) }}
+			
 			
 			
 			
 				<br>
 		</div>
+
 	</div>
+		<center> <strong> {{ Form::submit('Submit Order', array('class' => 'btn btn-primary')) }}</strong>  </center>
 	
 	{{ Form::close() }}
 
+	<style type="text/css">
+		#map-canvas{
+			width: 550px;
+			height: 350px;
+		}
+	</style>
 
+	  <!-- Google Maps Scripts -->
+   <script>
+    var map = new google.maps.Map(document.getElementById('map-canvas'), {
+      center:{
+        lat: 8.23497,
+        lng: 124.25
+      },
+      zoom:14
+    });
+
+    var marker = new google.maps.Marker({
+      position:{
+        lat: 8.23497,
+        lng: 124.25
+      },
+      map: map,
+      draggable:true
+    })
+
+    google.maps.event.addListener(marker,'position_changed', function(){
+      var lat = marker.getPosition().lat();
+      var lng = marker.getPosition().lng();
+
+      $('#lat').val(lat);
+      $('#lng').val(lng);
+    });
+
+    google.maps.event.addListener(map, 'click', function(event) {
+      placeMarker(event.latLng)
+    });
+
+    var marker;
+
+        function placeMarker(location) {
+          if ( marker ) {
+            marker.setPosition(location);
+          } else {
+            marker = new google.maps.Marker({
+              position: location,
+              map: map            
+            });
+          }
+
+          marker.setMap(map);
+        }
+
+
+ 	 </script>
+
+	
 @stop

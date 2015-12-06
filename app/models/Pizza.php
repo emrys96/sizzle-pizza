@@ -22,7 +22,7 @@ class Pizza extends Eloquent {
 
 	public function ingredients(){
 		// hasMany('ngalan sa model', 'ngalan sa junction table', 'name id sa gi-gikanan', 'name sa id sa padulngan nga junction table')
-		return $this->belongsToMany('Ingredient','pizza_details'  , 'pizza_id', 'ingredients_id' );
+		return $this->belongsToMany('Ingredient','pizza_details'  , 'pizza_id', 'ingredient_id' );
 	}
 
 	public function orders(){

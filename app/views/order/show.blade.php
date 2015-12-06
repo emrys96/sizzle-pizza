@@ -2,14 +2,16 @@
 
 @section('content')
 
-	
+		
 		<div class="row">
 			<!-- <div class="col-md-12"> -->
 
 			<center><img src="../images/placeorder.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></center>
 				<div class="container">
 					<div class="col-md-10">	
-					<text><font face="Supercell-Magic" size="3" color="White">{{Auth::user()->username}}'s Cart!</font></text> <br>
+					<text><font face="Supercell-Magic" size="3" color="White">{{Auth::user()->username}}'s Cart!
+						<br> {{ Form::label('id', 'Order #: '  .$order->order_id. '') }}	
+					</font></text> <br>
 
 					</div>
 				</div>	
@@ -94,9 +96,13 @@
 		<div class="row">
 			<center> 
 				<!-- <div class="row"> -->
-				<button type="button" class="btn btn-default"> <a href="{{ URL::route('order.edit', $order->order_id) }}">
+				
+			{{ Form::open(array('url' => 'pizza')) }}	
+				{{Form::hidden('order', $order->order_id)}}
+				<button type="button" class="btn btn-default"> <a href="{{ URL::route('pizza.create', array('order' => $order->order_id)) }}">
 	 				 Add Pizza <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> </a> </button> 
-	 				
+	 		{{ Form::close() }}
+
 	 			<!-- <div class="row"> -->
 				<button type="button" class="btn btn-default"> <a href="{{ URL::route('carryOut', $order->order_id) }}">
 	 				 Submit Order <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> </a> </button>

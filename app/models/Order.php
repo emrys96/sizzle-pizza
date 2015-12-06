@@ -30,5 +30,10 @@ class Order extends Eloquent {
 		// belongsTo('ngalan sa model', 'ngalan sa id adto nga table sa model')
 		return $this->belongsTo('User','user_id');
 	}
+
+	public function name(){
+		$user = $this->user;
+		return $user->name;
+	}
 	
 }

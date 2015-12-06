@@ -16,8 +16,8 @@ class CreatePizzaDetailsTable extends Migration {
 		{
 			$table->integer('pizza_id')->unassigned();
 			$table->foreign('pizza_id')->references('pizza_id')->on('pizzas');
-			$table->integer('ingredients_id')->unassigned();
-			$table->foreign('ingredients_id')->references('ingredients_id')->on('ingredients');
+			$table->integer('ingredient_id')->unassigned();
+			$table->foreign('ingredient_id')->references('ingredient_id')->on('ingredients');
 			//$table->timestamps();
 		});
 	}

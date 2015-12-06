@@ -14,13 +14,13 @@ class CreateIngredientTable extends Migration {
 	{
 		Schema::create('ingredients', function(Blueprint $table)
 		{
-			$table->increments('ingredients_id');
+			$table->increments('ingredient_id');
 			$table->string('ingredient_name');
 			$table->integer('current_stock');
 			$table->float('price');
-			$table->string('size');
+			// $table->string('size');
 			$table->enum('category',array('base','cheese','meat','chili','topping','sauce'));
-			$table->string('image_location');
+			$table->string('image_location')->nullable();
 			$table->timestamps();
 		});
 	}

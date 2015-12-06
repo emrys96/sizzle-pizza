@@ -9,10 +9,12 @@ class IngredientController extends \BaseController {
 	 */
 	public function index()
 	{
-		$ingredients = Ingredient::all();
+		$ingredients = DB::table('ingredients')->paginate(10);
 
 		return View::make('ingredients.index')
 			->with('ingredients', $ingredients);
+	
+		
 	}
 
 
@@ -35,6 +37,23 @@ class IngredientController extends \BaseController {
 	public function store()
 	{
 		//
+
+		$ingr = new Ingredient;
+
+		//Get the name of the ingredient
+		$name = Input::get('ingrName');
+		$ingr->ingredient_name = $name;
+
+		$category = Input::get('category');
+		$ingr->category = $category;
+
+		$price = Input::get('price');
+		$ingr->price = $price;
+
+		$stock = Input::get('curr_stock');
+		$ingr->current_stock = $stock;
+
+		$ingr->save();
 	}
 
 
@@ -59,6 +78,10 @@ class IngredientController extends \BaseController {
 	public function edit($id)
 	{
 		//
+		$ingredient = Ingredient::find($id);
+
+		return View::make('ingredients.edit')
+			->with('ingredient', $ingredient);
 	}
 
 
@@ -71,6 +94,17 @@ class IngredientController extends \BaseController {
 	public function update($id)
 	{
 		//
+
+		$ingr = Ingredient::find($id);
+
+		
+		$price = Input::get('price');
+		$ingr->price = $price;
+
+		$stock = Input::get('curr_stock');
+		$ingr->current_stock = $stock;
+
+		$ingr->save();
 	}
 
 

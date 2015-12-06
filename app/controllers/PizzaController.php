@@ -20,7 +20,18 @@ class PizzaController extends BaseController {
 	 */
 	public function create()
 	{	
-		return View::make('pizza.create');
+		//Session ID
+		if(Session::has('order'))
+			$id = Session::get('order');
+		else
+			$id = Input::get('order');
+
+		$order = Order::find($id);
+
+		Session::put('order', $id);
+
+		return View::make('pizza.create')
+			->with('order', $order);
 
 	}
 
@@ -33,10 +44,12 @@ class PizzaController extends BaseController {
 	public function store()
 	{
 		//
+		
 		$pizza = new Pizza;
-		$order_id = Input::get('order_id');
-
+		$order_id = Input::get('order');
+		
 		$order = Order::find($order_id);
+		$order->save();
 
 		$pizza_name = Input::get('pizza_name');
 		$pizza->pizza_name= $pizza_name;

@@ -6,7 +6,7 @@
 	<font size="3" color="white">
 	<nav class="navbar navbar-inverse">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="{{ URL::to('nerds') }}">Ingredients</a>
+		<a class="navbar-brand" href="{{ URL::to('ingredients') }}">Ingredients</a>
 	</div>
 	<ul class="nav navbar-nav">
 		<li><a href="{{ URL::to('ingredients') }}">View All Ingredients</a></li>
@@ -26,7 +26,8 @@
 			<br>
 			<br>
 			<div class="container"> 
-			<div class="col-md-12">	 	
+		
+			<div class="col-md-10 col-md-offset-1">	 	
 
 		        <div class="panel panel-default">
 
@@ -38,7 +39,9 @@
 		              <td><div align="center"><strong>Category</strong></div></td>
 		              <td><div align="center"><strong>Price</strong></div></td>
 		              <td><div align="center"><strong>Current Stock</strong></div></td>
+		              <td></td>
 		              <td><div align="center"><strong>Actions</strong></div></td>
+		              <td></td>
 		              
 		              
 		            </tr>
@@ -46,19 +49,21 @@
 		           	            	
 		           	@foreach($ingredients as $key => $ingr)	
 		              <tr>
-		                <td> <center> {{ $ingr->ingredients_id }} </center></td>
+		                <td> <center> {{ $ingr->ingredient_id }} </center></td>
 						<td> <center> {{ $ingr->ingredient_name}} </center></td>
 						<td> <center> {{ $ingr->category }}</center></td>
 						<td> <center> {{ $ingr->price }} </center></td>
 						<td> <center> {{ $ingr->current_stock }} </center></td>
-						<td> 
-							<center>
+						<td> <center> <a class="btn btn-success" href="{{ URL::to('/ingredient/' . $ingr->ingredient_id) }}"><span class="glyphicon glyphicon-search"></span></a> </center></td>
+						<td> <center> <a class="btn btn-warning" href="{{ URL::route('ingredient.edit', array('order' => $ingr->ingredient_id)) }}"><span class="glyphicon glyphicon-pencil	"></span></a></center></td>
+						<td> <center> <a class="btn btn-danger" data-toggle="modal" data-target="#myModal{{$ingr->ingredient_id}}"><span class="glyphicon glyphicon-trash"></span></a> </center></td>
+						
 							
-									<a class="btn btn-success" href="{{ URL::to('/pizza/' . $ingr->ingredients_id) }}"><span class="glyphicon glyphicon-search"></span></a>
-									<a class="btn btn-warning" href="{{ URL::to('/pizza/' . $ingr->ingredients_id) . '/edit' }}"><span class="glyphicon glyphicon-pencil	"></span></a>
-						 	    	<a class="btn btn-danger" data-toggle="modal" data-target="#myModal{{$ingr->ingredients_id}}"><span class="glyphicon glyphicon-trash"></span></a>
+									
+									
+						 	    	
 								
-							</center>
+							
 						</td>
 								 
 
@@ -68,12 +73,14 @@
 		         
 		          </table>
 		        </div>	
+		        <center> {{ $ingredients->links() }}</center>
 			</div>	
+			
 			</div>
 		</div>	
 	</div>	
 
-<div class="modal fade" id="myModal{{$ingr->ingredients_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal{{$ingr->ingredient_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -81,7 +88,7 @@
 	        <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p>Are you sure you want to delete?: {{$ingr->ingredients_id}}?</p>
+	        <p>Are you sure you want to delete?: {{$ingr->ingredient_id}}?</p>
 	        <p>This cannot be undone.</p>
 	      </div>
 	      <div class="modal-footer">
