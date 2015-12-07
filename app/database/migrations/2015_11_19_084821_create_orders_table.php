@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration {
 			$table->enum('mode',array('delivery','pick-up'))->nullable();
 			$table->enum('status',array('confirmed','unconfirmed','on process','on delivery','ready for pick-up', 'received'));
 			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 

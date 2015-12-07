@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration {
 			$table->enum('role',array('admin','customer','cashier'));
 			$table->text('remember_token',100)->nullable();
 			$table->timestamps();
+			$table->softDeletes();
+
 		});
 	}
 

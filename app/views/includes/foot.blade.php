@@ -64,24 +64,80 @@
         });
     </script>
 
-
-
     <script>
-        $(document).ready(function(){
-            $('#mode').on('change', function() {
-              if ( this.value == '0')
-              {
-                $("#delivery").show();
-                $("#pickup").hide();
-              }
-              else
-              {
-                $("#delivery").hide();
-                $("#pickup").show();
-              }
-            });
+        $( "#meatHeader2" ).click(function() {
+          $( "#meats2" ).slideToggle( "fast" );
         });
     </script>
+
+    <script>
+        $( "#toppingsHeader2" ).click(function() {
+          $( "#toppings2" ).slideToggle( "fast" );
+        });
+    </script>
+
+     <script>
+        $( "#baseHeader2" ).click(function() {
+          $( "#base2" ).slideToggle( "fast" );
+        });
+    </script>
+
+    <script>
+        $( "#cheeseHeader2" ).click(function() {
+          $( "#cheese2" ).slideToggle( "fast" );
+        });
+    </script>
+
+    <script>
+        $( "#chiliHeader2" ).click(function() {
+          $( "#chili2" ).slideToggle( "fast" );
+        });
+    </script>
+
+    <script>
+        $( "#sauceHeader2" ).click(function() {
+          $( "#sauce2" ).slideToggle( "fast" );
+        });
+    </script>
+
+
+    <!-- Hide/Show Scripts -->
+      <!-- For Delivery Mode -->
+      <script>
+          $(document).ready(function(){
+              $('#mode').on('change', function() {
+                if ( this.value == '0')
+                {
+                  $("#delivery").show();
+                  $("#pickup").hide();
+                }
+                else
+                {
+                  $("#delivery").hide();
+                  $("#pickup").show();
+                }
+              });
+          });
+      </script>
+
+      <!-- For Pizza Size -->
+       <script>
+          $(document).ready(function(){
+              $('#size').on('change', function() {
+                if ( this.value == 'solo')
+                {
+                  $("#solo").show();
+                  $("#large").hide();
+                }
+                else
+                {
+                  $("#solo").hide();
+                  $("#large").show();
+                }
+              });
+          });
+      </script>
+
 
   <!-- For Menu Labels -->
    <script>

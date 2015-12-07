@@ -18,7 +18,9 @@ class CreatePizzaTable extends Migration {
 			$table->string('pizza_name');
 			$table->integer('quantity');
 			$table->float('amount');
+			$table->float('total');
 			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 

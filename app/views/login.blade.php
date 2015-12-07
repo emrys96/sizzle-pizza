@@ -134,6 +134,11 @@
                                                           <label for="userpass">Password</label>
                                                           <input class="form-control" id="userpass" placeholder="Password" name="userpass" type="password" maxlength="20">
                                                         </div>
+
+                                                        <div class="form-group">
+                                                          {{ Form::hidden('role', 'customer') }}
+                                                        </div>
+
                                                         <div class="form-group"> </div>
                                                         
                                                         <input class="btn btn-lg btn-primary btn-block" type="submit" name="register" value="Register">

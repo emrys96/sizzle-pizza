@@ -151,6 +151,8 @@ class OrderController extends \BaseController {
 
 		$order = Order::find($id);
 
+		//Get the total
+		$total = Input::get('total');
 		//Get the time
 		$time = Input::get('time');
 		//Get the input address
@@ -184,7 +186,7 @@ class OrderController extends \BaseController {
 			$order->time = $time;
 		}
 			
-
+		$order->amount = $total;
 		//Saves the changes
 		$order->save();
 

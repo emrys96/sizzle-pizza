@@ -18,6 +18,7 @@ class CreatePizzaDetailsTable extends Migration {
 			$table->foreign('pizza_id')->references('pizza_id')->on('pizzas');
 			$table->integer('ingredient_id')->unassigned();
 			$table->foreign('ingredient_id')->references('ingredient_id')->on('ingredients');
+			$table->softDeletes();
 			//$table->timestamps();
 		});
 	}

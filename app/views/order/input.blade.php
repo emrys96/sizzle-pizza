@@ -2,7 +2,7 @@
 
 
 @section('content')
- 
+ 	{{$grandtotal = 0;}}
 	<br>
 	<br>
 	<br>
@@ -30,19 +30,31 @@
 					<font size="3" color="white">{{ Form::label('summary', 'Pizza List:')}}</font>
 						<table class="table table-striped">
 							<tr>
-								<td style="width:100px"><strong> Pizza Name </strong> </td>
-								<td style="width:70px"> <strong> Price </strong> </td>
+								<td><strong> <center> Pizza Name </center> </strong> </td>
+								<td> <strong> <center> Price </center> </strong> </td>
+								<td> <strong> <center> Quantity </center> </strong> </td>
+								<td> <strong> <center> Total </center>  </strong> </td>
 							</tr>
 							@foreach($order->pizzas as $pizza)	
 							<tr>
-								<td style="width:100px"> {{ $pizza->pizza_name }} </td>
-								<td style="width:70px"> {{ $pizza->amount * $pizza->quantity }} </td>	
+								<td> <center> {{ $pizza->pizza_name }}  </center></td>
+								<td align="right"> <center> P {{ $pizza->amount }}.00  </center></td>	
+								<td> <center> {{ $pizza->quantity }} </center> </td>
+								<td align="right"> <center> P {{ $pizza->total }}.00 </center> 
+								<div class="hidden"> {{ $grandtotal = $grandtotal + $pizza->total }}</div>	
+								</td>
 							</tr>
 							@endforeach
+							<tr>
+								<td><strong> Total: </strong> </td>
+								<td> <strong>  </strong> </td>
+								<td> <strong>  </strong> </td>
+								<td align="right"> <strong> <center> P {{ $grandtotal }}.00 </center>  </strong> </td>
+							</tr>
 						<table>
 					
 				</div>	
-
+				{{ Form::hidden('total', $grandtotal) }}
 			
 				<div class="form-group">
 						<font size="3" color="white">{{ Form::label('ingr_name', 'Delivery Mode:')}}</font>

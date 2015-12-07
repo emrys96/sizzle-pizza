@@ -18,6 +18,7 @@ class CreateOrderDetailsTable extends Migration {
 			$table->foreign('order_id')->references('order_id')->on('orders');
 			$table->integer('pizza_id')->unassigned();
 			$table->foreign('pizza_id')->references('pizza_id')->on('pizzas');
+			$table->softDeletes();
 			// $table->integer('quantity');
 			// $table->float('amount');
 			// $table->timestamps();

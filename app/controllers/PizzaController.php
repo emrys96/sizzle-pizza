@@ -54,6 +54,7 @@ class PizzaController extends BaseController {
 		$pizza_name = Input::get('pizza_name');
 		$pizza->pizza_name= $pizza_name;
 		$pizza->amount=0;
+		$pizza->total=0;
 		$quantity = Input::get('quantity');
 		$pizza->quantity = $quantity;
 		$pizza->save();
@@ -64,7 +65,8 @@ class PizzaController extends BaseController {
 		
 
 		
-
+	$size = Input::get('size');
+	if($size == 'solo') {
 
 		$base = Input::get('base');
 			$pizza->ingredients()->attach($base);
@@ -101,6 +103,47 @@ class PizzaController extends BaseController {
 			$pizza->ingredients()->attach($topping);
 			}
 		}
+	} 
+	
+	else if($size == 'large') {
+
+		$base = Input::get('base2');
+			$pizza->ingredients()->attach($base);
+
+		$sauce = Input::get('sauce2');
+			$pizza->ingredients()->attach($sauce);	
+			
+		$cheese = Input::get('cheese2');
+			$pizza->ingredients()->attach($cheese);
+			
+		$meats = Input::get('meats2');
+
+		if(sizeof($meats) != 0) {
+			foreach ($meats as $meat) {
+			$pizza->ingredients()->attach($meat);
+			
+			}	
+		}
+		
+
+		$chilis = Input::get('chilis2');
+
+		if(sizeof($chilis) != 0) {
+			foreach ($chilis as $chill) {
+			$pizza->ingredients()->attach($chill);
+			}	
+		}
+		
+
+		$toppings = Input::get('toppings2');
+
+		if(sizeof($toppings) != 0){
+			foreach ($toppings as $topping) {
+			$pizza->ingredients()->attach($topping);
+			}
+		}
+
+	}	
 		
 		$amount = 0;
 
@@ -108,10 +151,13 @@ class PizzaController extends BaseController {
 			$amount = $amount + $ingr->price;
 		}
 
-		
-		$total_amount;
-
+		//price of the individual pizza
 		$pizza->amount = $amount;
+
+		//total amount = price of pizza * quantity
+		$total = $amount * $quantity;
+
+		$pizza->total = $total;
 		
 		
 		$pizza->save();
