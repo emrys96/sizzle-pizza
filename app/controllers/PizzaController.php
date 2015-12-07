@@ -62,14 +62,20 @@ class PizzaController extends BaseController {
 
 		
 		
-		
+
 
 		
 	$size = Input::get('size');
 	if($size == 'solo') {
 
 		$base = Input::get('base');
-			$pizza->ingredients()->attach($base);
+			if($base)
+				$pizza->ingredients()->attach($base);
+			else
+				return Redirect::to('/pizza/create')
+					->with(array('order' => $order->order_id,'message' => "It ain't pizza if there ain't no base!"))
+					->withInput(Input::only('pizza_name','quantity','size'));
+			
 
 		$sauce = Input::get('sauce');
 			$pizza->ingredients()->attach($sauce);	
@@ -145,27 +151,38 @@ class PizzaController extends BaseController {
 
 	}	
 		
-		$amount = 0;
 
-		foreach($pizza->ingredients as $ingr){
-			$amount = $amount + $ingr->price;
+
+		if(sizeof($pizza->ingredients) <= 4){
+			return Redirect::to('/pizza/create')
+					->with(array('order' => $order->order_id,'message' => "Too few ingredients. Should have at least 4."))
+					->withInput(Input::only('pizza_name'));
+			
 		}
+		else{
+			$amount = 0;
 
-		//price of the individual pizza
-		$pizza->amount = $amount;
+			foreach($pizza->ingredients as $ingr){
+				$amount = $amount + $ingr->price;
+			}
 
-		//total amount = price of pizza * quantity
-		$total = $amount * $quantity;
+			//price of the individual pizza
+			$pizza->amount = $amount;
 
-		$pizza->total = $total;
+			//total amount = price of pizza * quantity
+			$total = $amount * $quantity;
+
+			$pizza->total = $total;
+			
+			
+			$pizza->save();
+
+			$order->pizzas()->attach($pizza);
+			$order->save();
+			//Show newly created pizza 
+			return Redirect::to('/order/' . $order->order_id . '');
+		}
 		
-		
-		$pizza->save();
-
-		$order->pizzas()->attach($pizza);
-		$order->save();
-		//Show newly created pizza 
-		return Redirect::to('/order/' . $order->order_id . '');
 	}
 
 

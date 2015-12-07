@@ -2,6 +2,7 @@
 
 @section('content')
 
+	
   <br>
   <br>
   <!-- Base -->
@@ -11,12 +12,25 @@
   	<br>
 <center>
  
+
+	<div class="row">
+		<center>
+			@if(Session::has('message'))
+		        <div id="login-alert" class="alert alert-danger col-sm-6 col-sm-offset-3" style="padding:0px; height:70px; ">
+		          <font size="5"><p class="alert">{{ Session::get('message') }}</p></font>
+		        </div> 
+		    @endif
+   		 </center>
+	</div>
+
+
+
  <div class="row">
 {{ Form::open(array('url' => 'pizza')) }}	
-	<font color="white" size="3"> {{ Form::label('id', $order->order_id) }}	</font>
+	{{ Form::label('id', $order->order_id) }}	
 	<input type="hidden" name="order" value="{{ $order->order_id }}" />
 	<center><font face="Supercell-Magic" size="4" color="white">
-			{{ Form::label('Name', 'Pizza Name:')}}
+			{{ Form::label('Name', 'Pizza Name (optional):')}}
 			<font color="black">{{ Form::text('pizza_name') }}</font>
 	</font></center>
 	<br>

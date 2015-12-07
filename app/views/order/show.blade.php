@@ -27,7 +27,7 @@
 
 		        <div class="panel panel-default">
 
-
+		          <div class="table-responsive">	
 		          <table class= "table table-striped table-hover"border="0" cellpadding="0" cellspacing="0">
 		            <tr>
 		              <td><div align="center"><strong>Pizza ID</strong></div></td>
@@ -51,17 +51,13 @@
 		              <tr>
 		                <td> <center> {{ $pizza->pizza_id }} </center></td>
 						<td> <center> {{ $pizza->pizza_name}} </center></td>
-						<div class="table-responsive">
-							<div class="col-md-6">
 						<td>
-							<p>
+							
 							@foreach($pizza->ingredients as $ingr)
 								{{ $ingr->ingredient_name }},    
 							@endforeach
-							</p>
+							
 						</td>
-							</div>
-						</div>
 						<td align="right"> P {{ $pizza->amount}}.00 </td>
 						<td> <center> {{ $pizza->quantity }} </center></td>
 						<td align="right">  P {{ $pizza->total }}.00 </td>
@@ -118,6 +114,7 @@
 		            </tr>	
 		            @endif
 		          </table>
+		      	</div>
 		        </div>	
 			</div>	
 			</div>

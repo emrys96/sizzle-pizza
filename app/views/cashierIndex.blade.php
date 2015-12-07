@@ -20,11 +20,15 @@
 
                     <td><center><a class="highlightit" href="../order"><img src="../images/addorder.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td>
               
-                    <td><center><a class="highlightit" href="/userOrders"><img src="../images/orderhistory.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td>
+                    <td><center><a class="highlightit" href="/viewAllOrders"><img src="../images/manageorder.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td>
                    
                     <td><center><a class="highlightit" href="/logout"><img src="../images/logout.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td> 
                 </tr>    
+                <tr>
                      
+                
+                     
+                </tr>           
               </thead>          
             </table>
         </center>

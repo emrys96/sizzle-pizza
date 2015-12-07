@@ -7,7 +7,14 @@ class LoginController extends BaseController {
 	}
 
 	public function home(){
-		return View::make('customerIndex');
+		$role = Auth::user()->role;
+
+		if($role == 'customer')	
+			return View::make('customerIndex');
+		else if($role == 'admin')
+			return View::make('adminIndex');
+		else if($role == 'cashier')
+			return View::make('cashierIndex');
 	}
 
 	public function processLogin(){
