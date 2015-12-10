@@ -53,6 +53,31 @@ Route::any('/updateStatus/{id}',[
         "uses" => "OrderController@updateStatus"
 ]);
 
+Route::any('/userOrders/{id}',[
+        "as" => "userOrder",
+        "uses" => "OrderController@previewOrder"
+]);
+
+Route::any("/profileSaveChanges/{id}", [
+        "as" => "profileSaveChanges",
+        "uses" => "UserController@profileSaveChanges"
+    ]);
+
+    Route::any("/profilechangepass/{id}", [
+    "as" => "profilechangepass",
+    "uses" => "UserController@profilechangepass"
+                ]);
+
+      Route::any("/editprofile", [
+        "as" => "editprofile",
+        "uses" => "UserController@editProfile"
+    ]);
+
+Route::any('/getProfile/{id}',[
+        "as" => "getprofile",
+        "uses" => "UserController@getProfile"
+]);
+
 
 
 

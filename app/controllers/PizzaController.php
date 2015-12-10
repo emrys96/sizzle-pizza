@@ -52,7 +52,11 @@ class PizzaController extends BaseController {
 		$order->save();
 
 		$pizza_name = Input::get('pizza_name');
-		$pizza->pizza_name= $pizza_name;
+		if($pizza_name)
+			$pizza->pizza_name= $pizza_name;
+		else
+			$pizza->pizza_name= "N/A";
+
 		$pizza->amount=0;
 		$pizza->total=0;
 		$quantity = Input::get('quantity');
@@ -67,7 +71,7 @@ class PizzaController extends BaseController {
 		
 	$size = Input::get('size');
 	if($size == 'solo') {
-
+		$pizza->size = $size;
 		$base = Input::get('base');
 			if($base)
 				$pizza->ingredients()->attach($base);
@@ -112,7 +116,7 @@ class PizzaController extends BaseController {
 	} 
 	
 	else if($size == 'large') {
-
+		$pizza->size = $size;
 		$base = Input::get('base2');
 			$pizza->ingredients()->attach($base);
 

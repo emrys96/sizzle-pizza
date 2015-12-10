@@ -15,10 +15,11 @@ class CreatePizzaTable extends Migration {
 		Schema::create('pizzas', function(Blueprint $table)
 		{
 			$table->increments('pizza_id');
-			$table->string('pizza_name');
-			$table->integer('quantity');
-			$table->float('amount');
-			$table->float('total');
+			$table->string('pizza_name')->nullable();
+			$table->integer('quantity')->nullable();
+			$table->float('amount')->nullable();
+			$table->enum('size',array('solo','large'))->nullable();
+			$table->float('total')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

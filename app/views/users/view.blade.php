@@ -20,7 +20,7 @@
                 <tr>
                   <br>
                     <center><img src="../images/zayn.jpg" class="img-thumbnail" alt="Cinque Terre" width="300" height="300"></center>
-                    <center> ID: {{Auth::user()->id}} </center>
+                    <center> ID: {{$user->id}} </center>
                 </tr>
               </font>
             </table>
@@ -32,10 +32,10 @@
             <table class="table table-striped table-hover ">
               <font color="white" size="5">
                 <br>
-                <tr>&nbsp; &nbsp; Name: {{ Auth::user()->name }} </tr> <br>
-                <tr>&nbsp; &nbsp; Birthdate: {{ Auth::user()->bday }} </tr> <br>
-                <tr>&nbsp; &nbsp; Address: {{ Auth::user()->address }} </tr> <br>
-                <tr>&nbsp; &nbsp; Contact No: {{ Auth::user()->contact_no }} </tr>
+                <tr>&nbsp; &nbsp; Name: {{ $user->name }} </tr> <br>
+                <tr>&nbsp; &nbsp; Birthdate: {{ $user->bday }} </tr> <br>
+                <tr>&nbsp; &nbsp; Address: {{ $user->address }} </tr> <br>
+                <tr>&nbsp; &nbsp; Contact No: {{ $user->contact_no }} </tr>
                     
                                        
 

@@ -11,7 +11,7 @@
 		<br>
 		<br>
 		<div class="col-md-6 col-md-offset-3">
-		{{ Form::open(array('url' => 'ingredients')) }}
+		{{ Form::open(array('url' => 'ingredient')) }}
 			<center>
 				<div class="form-group">
 						<font size="3" color="white">{{ Form::label('ingr_name', 'Name:')}}</font> &nbsp;
@@ -40,6 +40,16 @@
 				<div class="form-group">
 						<font size="3" color="white">{{ Form::label('stock', 'Current Stock:')}}</font> &nbsp;
 						<font size="3" color="black">{{ Form::text('curr_stock')}}</font>
+				</div>
+
+				<div class="form-group">
+						<font size="3" color="white">{{ Form::label('ingr_name', 'Portion Size:')}}</font>
+						<font size="3" color="black">
+							<select id="size" name="size">
+								<option value="solo">Solo</option>
+								<option value="large">Large</option>
+							</select>
+						</font>
 				</div>
 
 				

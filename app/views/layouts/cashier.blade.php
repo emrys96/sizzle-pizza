@@ -19,7 +19,7 @@
 		
 		
 			<div class="row">
-				@include('includes.navBar')
+				@include('includes.navBar2')
 			</div>
 		
 		

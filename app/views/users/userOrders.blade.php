@@ -2,11 +2,12 @@
 
 @section('content')
 
+
 	<div class="container">
 		<div class="row">
 			<!-- <div class="col-md-12"> -->
 
-			<center><img src="../images/placeorder.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></center>
+			<center><img src="../images/orderlist.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></center>
 				<div class="container">
 					<div class="col-md-10">	
 					&nbsp; &nbsp;<text><font face="Supercell-Magic" size="3" color="White">Hi {{Auth::user()->username}}!</font></text>
@@ -30,7 +31,8 @@
 		              <td><div align="center"><strong>Total Amount</strong></div></td>
 		              <td><div align="center"><strong>Mode</strong></div></td>
 		              <td><div align="center"><strong>Status</strong></div></td>	
-		              <td><div align="center"><strong>Updated at</strong></div></td>              
+		              <td><div align="center"><strong>Updated at</strong></div></td>      
+		              <td></td>        
 		            </tr>
 		           
 		           
@@ -47,7 +49,8 @@
 						<td align="right"> P {{ $order->amount }}.00 </td>
 						<td> <center>{{ $order->mode }}</center></td>
 						<td> <center> {{ $order->status }} </center> </td> 	
-						<td> <center> {{ $order->updated_at }} </center> </td> 	
+						<td> <center> {{ $order->updated_at }} </center> </td>
+						<td> <center> <a class="btn btn-success" href="{{ URL::to('/userOrders/' . $order->order_id) }}"><span class="glyphicon glyphicon-search"></span></a> </center> </td> 	
 		              </tr>
 		            @endforeach
 		            @endif

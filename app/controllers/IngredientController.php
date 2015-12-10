@@ -50,10 +50,16 @@ class IngredientController extends \BaseController {
 		$price = Input::get('price');
 		$ingr->price = $price;
 
+		$size = Input::get('size');
+		$ingr->size = $size;
+
+
 		$stock = Input::get('curr_stock');
 		$ingr->current_stock = $stock;
 
 		$ingr->save();
+
+		return Redirect::to('ingredient');
 	}
 
 
@@ -116,7 +122,11 @@ class IngredientController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$ingr = Ingredient::find($id);
+
+		$ingr->delete();
+
+		return Redirect::to('ingredient');
 	}
 
 

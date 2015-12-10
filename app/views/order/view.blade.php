@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.cashier')
 
 
 @section('content')
@@ -17,13 +17,25 @@
 			<div class="form-group">
 				<font size="3" color="white">{{ Form::label('ingr_name', 'Status:')}}</font>
 				<font size="3" color="black">
-					<select id="status" name="status">
-						<option value="unconfirmed">Unconfirmed</option>
-						<option value="confirmed">Confirmed</option>
-						<option value="on process">On Process</option>
-						<option value="on delivery">On Delivery</option>
-						<option value="ready for pick-up">Ready for pick up</option>
-						<option value="received">Received</option>
+					<select class="form-control" id="status" name="status">
+						<option @if($order->status == 'unconfirmed')
+						 selected="selected"
+						@endif value="unconfirmed">Unconfirmed</option>
+						<option @if($order->status == 'confirmed')
+						 selected="selected"
+						@endif value="confirmed">Confirmed</option>
+						<option @if($order->status == 'on process')
+						 selected="selected"
+						@endif value="on process">On Process</option>
+						<option @if($order->status == 'on delivery')
+						 selected="selected"
+						@endif value="on delivery">On Delivery</option>
+						<option @if($order->status == 'ready for pick-up')
+						 selected="selected"
+						@endif value="ready for pick-up">Ready for pick up</option>
+						<option @if($order->status == 'received')
+						 selected="selected"
+						@endif value="received">Received</option>
 					</select>
 				</font>
 			</div>
@@ -40,6 +52,7 @@
 
 			<div class="form-group">
 				<font size="3" color="white">{{ Form::label('pizza', 'Ordered Pizza:')}}</font>
+				 <div class="table-responsive">
 				<table class= "table table-striped table-hover"border="0" cellpadding="0" cellspacing="0">
 		            <tr>
 		              <td><div align="center"><strong>ID</strong></div></td>
@@ -47,6 +60,8 @@
 		              <td style="word-wrap: break-all"><div align="center"><strong>Ingredients</strong></div></td>
 		              <td><div align="center"><strong>Price</strong></div></td>
 		              <td><div align="center"><strong>Quantity</strong></div></td>
+		              <td><div align="center"><strong>Size</strong></div></td>
+
 
 		                      
 		              
@@ -69,11 +84,13 @@
 						</td>
 						<td align="right"> <center> P {{ $pizza->amount }}.00 </center></td>
 						<td> <center> {{ $pizza->quantity }} </center></td>
+						<td> <center> {{ $pizza->size }} </center></td>
 		              </tr>
 		              
 		            @endforeach
 		            @endif
 		          </table>
+		     	 </div>
 			</div>
 
 			@if($order->mode == 'delivery')

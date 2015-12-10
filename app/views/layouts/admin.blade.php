@@ -5,7 +5,7 @@
 </head>
 
 
-<body background="../images/backgroun4.jpg">
+<body background="../images/background2.jpg">
 
 	
 
@@ -19,7 +19,7 @@
 		
 		
 			<div class="row">
-				@include('includes.navBar')
+				@include('includes.navBar3')
 			</div>
 		
 		

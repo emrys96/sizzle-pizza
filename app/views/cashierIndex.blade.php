@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.cashier')
 
 
 @section('content')
@@ -16,7 +16,7 @@
                <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                    <td><center><a class="highlightit" href=""><img src="../images/changeinfo.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td> 
+                    <td><center><a class="highlightit" href="{{ URL::to('/users/' . Auth::user()->id) }}"><img src="../images/changeinfo.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td> 
 
                     <td><center><a class="highlightit" href="../order"><img src="../images/addorder.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td>
               

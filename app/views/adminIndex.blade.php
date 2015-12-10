@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.admin')
 
 
 @section('content')
@@ -16,17 +16,17 @@
                <table class="table  table-hover">
               <thead>
                 <tr>
-                    <td><center><a class="highlightit" href=""><img src="../images/changeinfo.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td> 
+                    <td><center><a class="highlightit" href="{{ URL::to('/users/' . Auth::user()->id) }}"><img src="../images/changeinfo.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td> 
 
                     <td><center><a class="highlightit" href="../order"><img src="../images/addorder.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td>
               
                      <td><center><a class="highlightit" href="/viewAllOrders"><img src="../images/manageorder.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td>
                    
-                      <td><center><a class="highlightit" href="/ingredients"><img src="../images/manageingredients.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td>
+                      <td><center><a class="highlightit" href="/ingredient"><img src="../images/manageingredients.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td>
                 </tr>    
                 <tr>
                     
-                
+                     <td><center><a class="highlightit" href="/users"><img src="../images/manageusers.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td> 
                      
                      <td><center><a class="highlightit" href="/logout"><img src="../images/logout.png" class="img-rounded" alt="Cinque Terre" width="250" height="250"></a></center></td> 
                 </tr>           

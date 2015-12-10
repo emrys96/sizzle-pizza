@@ -66,6 +66,20 @@ class OrderController extends \BaseController {
 		
 	}
 
+	public function previewOrder($id)
+	{
+		//
+
+		$order= Order::find($id);
+
+		return View::make('order.preview')
+			->with('order', $order);
+
+
+		//Test Map
+		
+	}
+
 	public function getUserOrders()
 	{
 		//
@@ -124,10 +138,19 @@ class OrderController extends \BaseController {
 
 	public function viewAllOrders(){
 
-		$orders = DB::table('orders')->orderBy('created_at','desc')->paginate(10);
+		$today = Carbon\Carbon::toDay()->toDateTimeString();
+		
+		if(Auth::user()->role == "admin" || Auth::user()->role == "cashier"){
+			$orders_today = Order::where('created_at', '>=', Carbon\Carbon::now()->startOfDay())->paginate(10);
 
-		return View::make('order.list')
-			->with('orders', $orders);
+			$orders_all = DB::table('orders')->orderBy('created_at','desc')->paginate(10);
+
+			return View::make('order.list')
+				->with(array('orders_today' => $orders_today, 'orders_all' => $orders_all));
+		} else {
+			echo "Access Denied. You have no permission to access this area.";
+		}
+		
 	}
 
 	public function inputOrderDetails($id) {
@@ -139,13 +162,20 @@ class OrderController extends \BaseController {
 	}
 
 	public function updateStatus($id){
-		$id = Input::get('order_id');
-		$stat = Input::get('status');
+		if(Auth::user()->role == "admin" || Auth::user()->role == "cashier"){
+			$id = Input::get('order_id');
+			$stat = Input::get('status');
 
-		$order = Order::find($id);
+			$order = Order::find($id);
 
-		$order->status = $stat;
-		$order->save();
+			$order->status = $stat;
+			$order->save();
+
+			return Redirect::to('/viewAllOrders');
+		} else {
+			echo "Access Denied. You have no permission to access this area.";
+		}
+		
 	}
 	public function getCoordinates($id) {
 
@@ -190,7 +220,7 @@ class OrderController extends \BaseController {
 		//Saves the changes
 		$order->save();
 
-		echo 'Successful';
+		return Redirect::to('/home');
 	}
 
 

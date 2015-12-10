@@ -6,7 +6,7 @@
   </div>
   <ul class="nav navbar-nav">
     <li><a href="{{ URL::to('/order') }}">Order Pizza</a></li>
-    <li><a href="{{ URL::to('/userOrders') }}">View Cart</a>
+    <li><a href="{{ URL::to('/viewAllOrders') }}">Manage Orders</a>
   </ul>
 
   <ul class="nav navbar-nav pull-right">

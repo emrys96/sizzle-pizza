@@ -9,9 +9,10 @@ class UserController extends BaseController {
 	 */
 	public function index()
 	{
-		$users = User::all();
-
-
+		
+		$users= DB::table('users')->where('role','=', "cashier")->orderBy('created_at','desc')->get();
+		
+	
 		return View::make('users.index')
 			->with('users', $users);
 	}
@@ -24,7 +25,11 @@ class UserController extends BaseController {
 	 */
 	public function create()	
 	{
-		return View::make('registerUser');
+		if(Auth::user()->role == 'admin' )
+			return View::make('registerUser');
+		else
+			return Redirect::to('users');
+
 	}
 
 
@@ -126,6 +131,78 @@ class UserController extends BaseController {
 		}
 	}
 
+	public function editProfile()
+    {
+        return View::make('users.edit');
+    }
+
+    public function getProfile($id)
+    {
+    	$user = User::find($id);
+
+        return View::make('users.view')
+        	->with('user', $user);
+    }
+
+	public function profileSaveChanges($id)
+    {
+        // validate
+        $rules = [
+            'name'         =>  'required',
+            'address'         =>  'required',
+            'username'         =>  'required',
+        ];
+
+        
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) 
+        {
+            return Redirect::to('editprofile')->with('message', 'Please fill up all fields');
+        } 
+        else 
+        {
+            $user = User::find($id);
+            $user->name        = Input::get('name');
+            $user->bday        = Input::get('bday');
+            $user->contact_no   = Input::get('contactNo');
+            $user->address      = Input::get('address');
+            $user->username        = Input::get('username');
+            $user->save();
+            Session::flash('message', 'Profile updated.');
+            return Redirect::to('/users/' .$user->id );
+        }
+    }
+    
+    public function profilechangepass($id)
+    {
+    	$pass = Input::get('password');
+    	$newPassword = Input::get('newpassword');
+    	$confirm = Input::get('confirm');
+    	
+    	$user = DB::table('users')->where('id', $id)->first();
+    	if (Hash::check(Input::get('password'), $user->password)) 
+    	{
+    		// The passwords match...
+    		if ($newPassword == $confirm) 
+    		{
+    			$user = User::find($id);
+    			$user->password = Hash::make($newPassword);
+    			$user->save();
+    			Session::flash('message', 'Password successfully changed.');
+    			return Redirect::to('/users/' .$id. '');
+    		}
+    		else 
+    		{
+    			return Redirect::to('editprofile')->with('message', 'Passwords do not match.');
+    		}
+    	}
+    	else {
+    		return Redirect::to('editprofile')->with('message', 'Please enter your current password.');
+    	}
+    }
+
 
 	/**
 	 * Remove the specified resource from storage.
@@ -142,8 +219,8 @@ class UserController extends BaseController {
         // redirect
         Session::flash('message', 'Successfully deleted!');
         
-        echo "Success delete()";
-        //return Redirect::to('users');
+        
+        return Redirect::to('users');
 	}
 
 
