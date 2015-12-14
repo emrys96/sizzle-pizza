@@ -9,9 +9,13 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <script src="../bootstrap/js/image-picker.min.js"></script>
-    <script src="../bootstrap/js/image-picker.js"></script>
+    
   
+
+    <!-- Bootbox -->
+     <script src="../bootstrap/js/bootbox/bootbox.js"></script>
+     <script src="../bootstrap/js/bootbox/bootbox.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
     
    
     
@@ -100,6 +104,13 @@
         });
     </script>
 
+    <!-- For Update Button in View All Orders -->
+    <script>
+        $( "#updateButton" ).click(function() {
+          $( "#updateMenu" ).slideToggle( "fast" );
+        });
+    </script>
+
 
     <!-- Hide/Show Scripts -->
       <!-- For Delivery Mode -->
@@ -121,6 +132,7 @@
       </script>
 
       <!-- For Pizza Size -->
+      <!-- Customer -->
        <script>
           $(document).ready(function(){
               $('#size').on('change', function() {
@@ -138,6 +150,7 @@
           });
       </script>
 
+      
 
   <!-- For Menu Labels -->
    <script>
@@ -194,6 +207,41 @@
     });
    </script>
 
+
+   
+
+
+ <script>
+ $(document).ready(function(){
+    $("#confirm1").click(function () {
+       //this is change select value 1
+        $('#status1').val('confirmed').trigger('change');
+    });
+     $("#confirm2").click(function () {
+         //
+         //this is change select value 1
+         $('#status1').val('on process').trigger('change');
+    });
+      $("#confirm3").click(function () {
+         //
+         //this is change select value 1
+         $('#status1').val('on delivery').trigger('change');
+    });
+       $("#confirm4").click(function () {
+         //
+         //this is change select value 1
+         $('#status1').val('ready for pick-up').trigger('change');
+    });
+        $("#confirm5").click(function () {
+         //
+         //this is change select value 1
+         $('#status1').val('received').trigger('change');
+    });
+  
+});
+ </script>
+
  
+   
 
     

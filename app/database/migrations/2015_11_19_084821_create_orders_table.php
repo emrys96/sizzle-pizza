@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration {
 			$table->double('lat',20,10)->nullable();
 			$table->string('time')->nullable();
 			$table->float('amount')->nullable();
-			$table->enum('mode',array('delivery','pick-up'))->nullable();
+			$table->enum('mode',array('delivery','pick-up','in-store'))->nullable();
 			$table->enum('status',array('confirmed','unconfirmed','on process','on delivery','ready for pick-up', 'received'));
 			$table->timestamps();
 			$table->softDeletes();

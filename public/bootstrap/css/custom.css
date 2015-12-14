@@ -3,8 +3,9 @@
   /*height: 100%;*/
 }
 
-.panel .panel {
-  background-color: #787878;
+.panel .panel-primary {
+  background-color: #ffffff;
+  border-color: #ffffff;
   /*height: 100%;*/
 }
 

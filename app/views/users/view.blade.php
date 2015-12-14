@@ -5,7 +5,7 @@
 <div class="container">
 
 	
-	<h1><font face="Calibri" color="white">&nbsp; &nbsp; Personal Information </font></h1>
+	<h1><font face="Calibri" color="white" size="8">&nbsp; &nbsp; Personal Information </font></h1>
 	<br>
   <div class="panel">
 
@@ -13,7 +13,7 @@
     <div class="row">
 
          
-            <div class="col-md-4">  
+            <div class="col-md-4 col-md-offset-1">  
             <br>
             <table class="table table-striped table-hover ">
               <font color="white" size="5">
@@ -27,7 +27,7 @@
             </div>
 
 
-            <div class="col-md-4">  
+            <div class="col-md-6">  
             <br>
             <table class="table table-striped table-hover ">
               <font color="white" size="5">
@@ -51,7 +51,11 @@
        
 	
     </div>
-    <center> <a class="btn btn-warning" href="{{ URL::route('editprofile', array('user' => Auth::user()->id)) }}"> Edit Profile &nbsp;<span class="glyphicon glyphicon-pencil	"></span></a></center>
+    @if(Auth::user()->role != 'admin')
+    <div>
+      <center> <a class="btn btn-warning" href="{{ URL::route('editprofile', array('user' => Auth::user()->id)) }}"> Edit Profile &nbsp;<span class="glyphicon glyphicon-pencil	"></span></a></center>
+    </div>
+    @endif
   </div>
 </div>
 </div>

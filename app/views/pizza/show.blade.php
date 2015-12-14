@@ -11,7 +11,7 @@
 			<div class="container">
 				<div class="col-md-6">
 					<!-- <div class="panel"> -->
-					<center><button><font color="black">Disassemble</font></button></center>
+					<center><button><font color="white">Disassemble</font></button></center>
 						<figure class="stack stack-queue">
 							@foreach($pizza->ingredients as $ingr)
 								<img src="{{ $ingr->image_location }}"/>

@@ -56,6 +56,7 @@
 				</div>	
 				{{ Form::hidden('total', $grandtotal) }}
 			
+				@if(Auth::user()->role == 'customer')
 				<div class="form-group">
 						<font size="3" color="white">{{ Form::label('ingr_name', 'Delivery Mode:')}}</font>
 						<font size="3" color="black">
@@ -109,7 +110,7 @@
 				</div>
 
 
-				
+				@endif
 
 				<br>
 				<br>
@@ -185,5 +186,17 @@
 
  	 </script>
 
+ 	 <!-- Bootbox -->
+  <script type="text/javascript">
+    $('form').submit(function(e) {
+        var currentForm = this;
+        e.preventDefault();
+        bootbox.confirm("Do you want to submit the order?", function(result) {
+            if (result) {
+                currentForm.submit();
+            }
+        });
+    });
+ </script>
 	
 @stop

@@ -9,7 +9,8 @@
     <title>Sizzle Order Pizza Online</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
     <link href="../bootstrap/css/modal.css" rel="stylesheet">
 
     <link href="../bootstrap/css/custom.css" rel="stylesheet" type="text/css">
@@ -22,6 +23,11 @@
       <script src="//code.jquery.com/jquery-1.10.2.js"></script>
       <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
       <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
 
 
       
@@ -71,6 +77,11 @@
     <link rel="stylesheet" type="text/css" href="../stackeffects/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="../stackeffects/css/demo.css" />
     <link rel="stylesheet" type="text/css" href="../stackeffects/css/component.css" />
+
+
+
+
+
 
 
     <!-- Slide Toggle Effect -->

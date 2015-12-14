@@ -78,6 +78,16 @@ Route::any('/getProfile/{id}',[
         "uses" => "UserController@getProfile"
 ]);
 
+Route::any('/deleteOrders',[
+        "as" => "deleteOrders",
+        "uses" => "OrderController@deleteOrders"
+]);
+
+
+Route::any('/changeStatus',[
+        "as" => "changeStatus",
+        "uses" => "OrderController@changeStatus"
+]);
 
 
 

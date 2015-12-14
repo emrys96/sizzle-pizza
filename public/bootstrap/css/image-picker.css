@@ -18,12 +18,13 @@ ul.thumbnails.image_picker_selector {
     margin: 0px 12px 12px 0px;
     float: left; }
     ul.thumbnails.image_picker_selector li .thumbnail {
-      padding: 6px;
+      padding: 0px;
       border: 1px solid #dddddd;
+      background: #000000;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none; }
       ul.thumbnails.image_picker_selector li .thumbnail img {
         -webkit-user-drag: none; }
     ul.thumbnails.image_picker_selector li .thumbnail.selected {
-      background: #0088cc; }
+      background: #cc0000; }

@@ -30,8 +30,13 @@ class PizzaController extends BaseController {
 
 		Session::put('order', $id);
 
-		return View::make('pizza.create')
-			->with('order', $order);
+		if(Auth::user()->role == "customer"){
+			return View::make('pizza.create')
+				->with('order', $order);
+		} else if(Auth::user()->role == "cashier"){
+			return View::make('pizza.cashier')
+				->with('order', $order);
+		}
 
 	}
 

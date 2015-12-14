@@ -38,6 +38,9 @@ class OrderController extends \BaseController {
 		$order= new Order;
 		$order->user()->associate($user);
 		$order->status = 'unconfirmed';
+		if(Auth::user()->role == "cashier")
+			$order->mode = "in-store";
+
 		$order->save();
 
 		
@@ -141,9 +144,9 @@ class OrderController extends \BaseController {
 		$today = Carbon\Carbon::toDay()->toDateTimeString();
 		
 		if(Auth::user()->role == "admin" || Auth::user()->role == "cashier"){
-			$orders_today = Order::where('created_at', '>=', Carbon\Carbon::now()->startOfDay())->paginate(10);
+			$orders_today = Order::where('created_at', '>=', Carbon\Carbon::now()->startOfDay())->orderBy('created_at','desc')->paginate(10);
 
-			$orders_all = DB::table('orders')->orderBy('created_at','desc')->paginate(10);
+			$orders_all = Order::orderBy('created_at','desc')->paginate(10);
 
 			return View::make('order.list')
 				->with(array('orders_today' => $orders_today, 'orders_all' => $orders_all));
@@ -157,8 +160,13 @@ class OrderController extends \BaseController {
 
 		$order = Order::find($id);
 
-		return View::make('order.input')
-			->with('order', $order);
+		if(Auth::user()->role == "admin" || Auth::user()->role == "cashier"){
+			return View::make('order.input2')
+				->with('order', $order);
+		} else {
+			return View::make('order.input')
+				->with('order', $order);
+		}
 	}
 
 	public function updateStatus($id){
@@ -204,17 +212,19 @@ class OrderController extends \BaseController {
 
 
 	
-
-		//Check the mode then save
-		if($mode == 0){
-			$order->mode = "delivery";
-			$order->lng = $lng;
-			$order->lat = $lat;
-		}	
-		else{
-			$order->mode = "pick-up";
-			$order->time = $time;
+		if(Auth::user()->role == 'customer'){
+			//Check the mode then save
+			if($mode == 0){
+				$order->mode = "delivery";
+				$order->lng = $lng;
+				$order->lat = $lat;
+			}	
+			else{
+				$order->mode = "pick-up";
+				$order->time = $time;
+			}	
 		}
+		
 			
 		$order->amount = $total;
 		//Saves the changes
@@ -234,6 +244,49 @@ class OrderController extends \BaseController {
 	{
 			
 	}
+
+	public function deleteOrders()
+	{
+		$IDs = Input::get('action2');
+
+
+		if(sizeof($IDs)){
+			foreach($IDs as $id) {
+			$order = Order::find($id);
+			foreach ($order->pizzas as $pizza) {
+				$order->pizzas()->	detach($pizza->pizza_id);
+			}
+			$order->delete();
+			}	
+		}
+		
+		return Redirect::to('/viewAllOrders');
+			
+	}
+
+	public function changeStatus()
+	{
+		$IDs = Input::get('action');
+		$stat = Input::get('status1');
+
+				
+
+		if(sizeof($IDs)){
+			foreach($IDs as $id) {
+				$order = Order::find($id);
+				// echo $order->order_id;
+				$order->status = $stat;
+				// echo $stat;
+				
+				$order->save();
+			}	
+		}
+
+		//echo "nganong dli man ka?";
+		return Redirect::to('/viewAllOrders');
+
+	}
+
 
 
 }

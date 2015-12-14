@@ -731,4 +731,17 @@
 </center>
 	{{ Form::close()}}	
  
+
+ <!-- Bootbox -->
+  <script type="text/javascript">
+    $('form').submit(function(e) {
+        var currentForm = this;
+        e.preventDefault();
+        bootbox.confirm("Are you sure with ingredients you picked?", function(result) {
+            if (result) {
+                currentForm.submit();
+            }
+        });
+    });
+ </script>
 @stop
